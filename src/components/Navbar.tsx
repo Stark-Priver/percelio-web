@@ -6,9 +6,10 @@ import { ThemeToggle } from './ThemeToggle';
 import { Menu, X, ArrowRight, Box } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Features',      href: '#features' },
-  { label: 'How it Works',  href: '#how-it-works' },
-  { label: 'About',         href: '#about' },
+  { label: 'Features',      href: '/features' },
+  { label: 'How it Works',  href: '/how-it-works' },
+  { label: 'About',         href: '/about' },
+  { label: 'Contact',       href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -44,13 +45,13 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map(l => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               className="text-sm font-medium text-[var(--body)] px-4 py-2 rounded-lg transition-colors hover:text-[var(--dark)] hover:bg-[var(--bg-soft)] no-underline"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -58,13 +59,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <div className="h-4 w-px bg-[var(--border)] mx-1" />
-          <a href="/login" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
+          <Link href="/login" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
             Sign in
-          </a>
-          <a href="#download" className="btn btn-primary btn-sm">
+          </Link>
+          <Link href="/download" className="btn btn-primary btn-sm">
             Get Started
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile controls */}
@@ -85,19 +86,19 @@ export default function Navbar() {
         <div className="md:hidden bg-[var(--bg)] border-t border-[var(--border)] px-6 py-8 absolute top-full left-0 right-0 shadow-xl reveal">
           <div className="flex flex-col gap-2">
             {NAV_LINKS.map(l => (
-              <a
+              <Link
                 key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-lg font-medium text-[var(--body)] py-4 border-b border-[var(--border-light)] no-underline hover:text-[var(--orange)] transition-colors"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-4">
-            <a href="/login" className="btn btn-ghost w-full justify-center">Sign in</a>
-            <a href="#download" className="btn btn-primary w-full justify-center">Get Started</a>
+            <Link href="/login" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</Link>
+            <Link href="/download" onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center">Get Started</Link>
           </div>
         </div>
       )}

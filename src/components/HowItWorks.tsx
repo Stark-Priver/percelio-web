@@ -43,7 +43,7 @@ export default function HowItWorks() {
       <div className="max-content container-px">
 
         {/* Header */}
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-12 reveal">
           <div className="overline mb-4">Simple Process</div>
           <h2 className="mb-6">
             Up and Running{' '}

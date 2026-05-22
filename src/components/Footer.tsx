@@ -1,13 +1,42 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Globe, Phone, Twitter, Linkedin, Instagram, Box, ArrowUpRight } from 'lucide-react';
+import { Mail, Globe, Phone, MapPin, Twitter, Linkedin, Instagram, Box, ArrowUpRight } from 'lucide-react';
 
-const footerLinks = {
-  Product: ['Features', 'How it Works', 'Download App', 'API Docs', 'Changelog'],
-  Solutions: ['For Businesses', 'For Couriers', 'For Logistics', 'For End Users', 'Enterprise', 'Partnerships'],
-  Company: ['About Us', 'Blog', 'Careers', 'Press Kit', 'Contact', 'Support'],
-};
+const footerLinks = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Features', href: '/features' },
+      { label: 'How it Works', href: '/how-it-works' },
+      { label: 'Download App', href: '/download' },
+      { label: 'API Docs', href: '/api-docs' },
+      { label: 'Changelog', href: '/changelog' },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'For Businesses', href: '/solutions/businesses' },
+      { label: 'For Couriers', href: '/solutions/couriers' },
+      { label: 'For Logistics', href: '/solutions/logistics' },
+      { label: 'For End Users', href: '/solutions/users' },
+      { label: 'Enterprise', href: '/solutions/enterprise' },
+      { label: 'Partnerships', href: '/partnerships' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Press Kit', href: '/press' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Support', href: '/support' },
+    ],
+  },
+];
 
 const socials = [
   { label: 'X (Twitter)', href: 'https://x.com/percelio', icon: Twitter },
@@ -42,17 +71,17 @@ export default function Footer() {
             <div className="flex flex-col gap-4 mb-8">
               {[
                 { icon: Mail, label: 'hello@percelio.com', href: 'mailto:hello@percelio.com' },
-                { icon: Globe, label: 'percelio.com', href: 'https://percelio.com' },
                 { icon: Phone, label: '+255 700 000 000', href: 'tel:+255700000000' },
+                { icon: MapPin, label: 'Percelio HQ, Dar es Salaam', href: '/contact' },
               ].map(c => (
-                <a
+                <Link
                   key={c.label}
                   href={c.href}
                   className="flex items-center gap-3 text-sm text-[var(--muted)] hover:text-white transition-colors no-underline group"
                 >
                   <c.icon className="w-4 h-4 group-hover:text-[var(--orange)] transition-colors" />
                   {c.label}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -74,19 +103,19 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <p className="text-xs font-bold text-white uppercase tracking-widest mb-6">{title}</p>
+          {footerLinks.map((group) => (
+            <div key={group.title}>
+              <p className="text-xs font-bold text-white uppercase tracking-widest mb-6">{group.title}</p>
               <ul className="flex flex-col gap-4 p-0 list-none">
-                {links.map(l => (
-                  <li key={l}>
-                    <a
-                      href="#"
+                {group.links.map(l => (
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
                       className="text-sm text-[var(--muted)] hover:text-white transition-colors no-underline flex items-center group"
                     >
-                      {l}
+                      {l.label}
                       <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-all -translate-y-1 translate-x-1 hidden" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -117,13 +146,13 @@ export default function Footer() {
 
           <div className="flex gap-8">
             {['Privacy', 'Terms', 'Cookies'].map(l => (
-              <a
+              <Link
                 key={l}
-                href="#"
+                href={`/${l.toLowerCase()}`}
                 className="text-xs text-[var(--muted)]/60 hover:text-white transition-colors no-underline"
               >
                 {l}
-              </a>
+              </Link>
             ))}
           </div>
 

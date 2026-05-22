@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Briefcase, Bike, Truck, User, CheckCircle2, ArrowRight, LayoutDashboard, Zap, ShieldCheck } from 'lucide-react';
 
 const roles = [
@@ -79,7 +80,7 @@ export default function UserTypes() {
       <div className="max-content container-px">
 
         {/* Header */}
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-12 reveal">
           <div className="overline mb-4">Built For Everyone</div>
           <h2 className="mb-4">
             One Platform,{' '}
@@ -91,7 +92,7 @@ export default function UserTypes() {
         </div>
 
         {/* Role tabs */}
-        <div className="flex justify-center gap-2 mb-16 flex-wrap reveal-delay-1">
+        <div className="flex justify-center gap-2 mb-12 flex-wrap reveal-delay-1">
           {roles.map(r => (
             <button
               key={r.id}
@@ -140,8 +141,8 @@ export default function UserTypes() {
               ))}
             </ul>
 
-            <a
-              href="#download"
+            <Link
+              href="/download"
               className="btn text-white px-8 py-4 rounded-xl shadow-2xl transition-all hover:scale-[1.02]"
               style={{
                 backgroundColor: role.color,
@@ -150,7 +151,7 @@ export default function UserTypes() {
             >
               Get Started as {role.label.split(' ')[0]}
               <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
+            </Link>
           </div>
 
           {/* Right — dashboard card */}
