@@ -1,11 +1,13 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ThemeToggle } from './ThemeToggle';
+import { Menu, X, ArrowRight, Box } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Features',      href: '#features' },
   { label: 'How it Works',  href: '#how-it-works' },
-  { label: 'Pricing',       href: '#pricing' },
   { label: 'About',         href: '#about' },
 ];
 
@@ -21,57 +23,31 @@ export default function Navbar() {
 
   return (
     <header
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        background: scrolled ? 'rgba(255,255,255,0.97)' : '#fff',
-        borderBottom: `1px solid ${scrolled ? '#E8E8E8' : '#F0F0F0'}`,
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        transition: 'all 0.3s ease',
-      }}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${
+        scrolled
+          ? 'bg-[var(--bg)]/80 backdrop-blur-md border-[var(--border)] py-3'
+          : 'bg-[var(--bg)] border-transparent py-5'
+      }`}
     >
-      <div className="max-content container-px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
+      <div className="max-content container-px flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <div style={{
-            width: 34, height: 34,
-            borderRadius: 9,
-            background: 'var(--orange)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0,
-          }}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M9 1.5L16 9L9 16.5L2 9L9 1.5Z" fill="rgba(255,255,255,0.25)" />
-              <path d="M9 5L13 9L9 13L5 9L9 5Z" fill="#fff" />
-            </svg>
+        <Link href="/" className="flex items-center gap-2.5 no-underline">
+          <div className="w-9 h-9 rounded-xl bg-[var(--orange)] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[var(--orange)]/20">
+            <Box className="w-5 h-5 text-white" />
           </div>
-          <span style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', fontSize: 20, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.02em' }}>
+          <span className="text-xl font-bold text-[var(--dark)] tracking-tight">
             Percelio
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2px' }} className="hidden md:flex">
+        <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map(l => (
             <a
               key={l.label}
               href={l.href}
-              style={{
-                fontFamily: 'var(--font)',
-                fontSize: 14,
-                fontWeight: 500,
-                color: 'var(--body)',
-                padding: '7px 14px',
-                borderRadius: 8,
-                transition: 'all 0.15s ease',
-                textDecoration: 'none',
-              }}
-              onMouseEnter={e => { (e.target as HTMLElement).style.color = 'var(--dark)'; (e.target as HTMLElement).style.background = 'var(--bg-soft)'; }}
-              onMouseLeave={e => { (e.target as HTMLElement).style.color = 'var(--body)'; (e.target as HTMLElement).style.background = 'transparent'; }}
+              className="text-sm font-medium text-[var(--body)] px-4 py-2 rounded-lg transition-colors hover:text-[var(--dark)] hover:bg-[var(--bg-soft)] no-underline"
             >
               {l.label}
             </a>
@@ -79,56 +55,52 @@ export default function Navbar() {
         </nav>
 
         {/* CTA group */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="hidden md:flex">
-          <a href="/login" style={{ fontFamily: 'var(--font)', fontSize: 14, fontWeight: 500, color: 'var(--body)', padding: '7px 14px', textDecoration: 'none' }}
-            onMouseEnter={e => (e.target as HTMLElement).style.color = 'var(--dark)'}
-            onMouseLeave={e => (e.target as HTMLElement).style.color = 'var(--body)'}
-          >
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+          <div className="h-4 w-px bg-[var(--border)] mx-1" />
+          <a href="/login" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
             Sign in
           </a>
           <a href="#download" className="btn btn-primary btn-sm">
             Get Started
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <path d="M2 7h10M7 2l5 5-5 5" />
-            </svg>
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          style={{ display: 'none', padding: 8, border: 'none', background: 'transparent', cursor: 'pointer', flexDirection: 'column', gap: 5 }}
-          className="mobile-menu-btn"
-          aria-label="Menu"
-        >
-          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--dark)', borderRadius: 2, transition: 'all 0.2s', transform: open ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
-          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--dark)', borderRadius: 2, transition: 'all 0.2s', opacity: open ? 0 : 1 }} />
-          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--dark)', borderRadius: 2, transition: 'all 0.2s', transform: open ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
-        </button>
+        {/* Mobile controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen(!open)}
+            className="p-2 text-[var(--dark)]"
+            aria-label="Menu"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
       {open && (
-        <div style={{ background: '#fff', borderTop: '1px solid var(--border)', padding: '16px 24px 24px' }}>
-          {NAV_LINKS.map(l => (
-            <a key={l.label} href={l.href} onClick={() => setOpen(false)}
-              style={{ display: 'block', fontFamily: 'var(--font)', fontSize: 16, fontWeight: 500, color: 'var(--body)', padding: '12px 0', borderBottom: '1px solid var(--border-light)', textDecoration: 'none' }}>
-              {l.label}
-            </a>
-          ))}
-          <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <a href="/login" className="btn btn-ghost" style={{ textAlign: 'center', justifyContent: 'center' }}>Sign in</a>
-            <a href="#download" className="btn btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>Get Started</a>
+        <div className="md:hidden bg-[var(--bg)] border-t border-[var(--border)] px-6 py-8 absolute top-full left-0 right-0 shadow-xl reveal">
+          <div className="flex flex-col gap-2">
+            {NAV_LINKS.map(l => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-lg font-medium text-[var(--body)] py-4 border-b border-[var(--border-light)] no-underline hover:text-[var(--orange)] transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-4">
+            <a href="/login" className="btn btn-ghost w-full justify-center">Sign in</a>
+            <a href="#download" className="btn btn-primary w-full justify-center">Get Started</a>
           </div>
         </div>
       )}
-
-      <style>{`
-        @media (max-width: 767px) {
-          .mobile-menu-btn { display: flex !important; }
-          .hidden.md\\:flex { display: none !important; }
-        }
-      `}</style>
     </header>
   );
 }

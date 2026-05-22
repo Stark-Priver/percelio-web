@@ -1,5 +1,7 @@
 'use client';
+
 import { useState } from 'react';
+import { Plus, Minus, HelpCircle, Mail, MessageSquare } from 'lucide-react';
 
 const faqs = [
   {
@@ -36,91 +38,80 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="about" className="section-pad" style={{ background: '#fff' }}>
+    <section id="about" className="section-pad bg-[var(--bg)]">
       <div className="max-narrow container-px">
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <div className="overline" style={{ marginBottom: 14 }}>FAQ</div>
-          <h2>Common <span style={{ color: 'var(--orange)' }}>Questions</span></h2>
+        <div className="text-center mb-16 reveal">
+          <div className="overline mb-4">Support</div>
+          <h2 className="mb-2 text-[var(--dark)] font-bold">Common <span className="text-[var(--orange)]">Questions</span></h2>
+          <div className="w-12 h-1 bg-[var(--orange)] mx-auto rounded-full mt-6" />
         </div>
 
         {/* Accordion */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div className="space-y-3 reveal-delay-1">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={i}
-                style={{
-                  border: `1px solid ${isOpen ? 'var(--orange)' : 'var(--border)'}`,
-                  borderRadius: 14,
-                  overflow: 'hidden',
-                  transition: 'border-color 0.2s ease',
-                  background: isOpen ? 'var(--orange-light)' : '#fff',
-                }}
+                className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+                  isOpen
+                    ? 'border-[var(--orange)] bg-[var(--orange-light)] shadow-sm'
+                    : 'border-[var(--border)] bg-[var(--bg)] hover:border-[var(--muted)]/30'
+                }`}
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  style={{
-                    width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    gap: 16, padding: '18px 22px', border: 'none', background: 'transparent',
-                    cursor: 'pointer', textAlign: 'left', fontFamily: 'var(--font)',
-                  }}
+                  className="w-100 flex items-center justify-between gap-6 p-6 border-none bg-transparent cursor-pointer text-left w-full group"
                 >
-                  <span style={{ fontSize: 15, fontWeight: 600, color: 'var(--dark)', lineHeight: 1.4 }}>{faq.q}</span>
-                  <span style={{
-                    width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
-                    background: isOpen ? 'var(--orange)' : 'var(--bg-soft)',
-                    border: `1px solid ${isOpen ? 'var(--orange)' : 'var(--border)'}`,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    transition: 'all 0.2s ease',
-                  }}>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                      stroke={isOpen ? '#fff' : 'var(--body)'} strokeWidth="2" strokeLinecap="round">
-                      {isOpen
-                        ? <path d="M2 6h8"/>
-                        : <path d="M6 2v8M2 6h8"/>}
-                    </svg>
+                  <span className={`text-base font-bold leading-relaxed transition-colors ${isOpen ? 'text-[var(--dark)]' : 'text-[var(--body)] group-hover:text-[var(--dark)]'}`}>
+                    {faq.q}
                   </span>
-                </button>
-                {isOpen && (
-                  <div style={{ padding: '0 22px 20px' }}>
-                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7 }}>{faq.a}</p>
+                  <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-300 ${
+                    isOpen
+                      ? 'bg-[var(--orange)] text-white rotate-180'
+                      : 'bg-[var(--bg-soft)] text-[var(--muted)] group-hover:bg-[var(--border)]'
+                  }`}>
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
-                )}
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-6 pb-6 pt-0">
+                    <p className="text-sm text-[var(--body)] leading-relaxed">{faq.a}</p>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
 
         {/* Contact CTA */}
-        <div style={{
-          marginTop: 48, textAlign: 'center',
-          background: 'var(--bg-soft)', border: '1px solid var(--border)',
-          borderRadius: 20, padding: '36px 32px',
-        }}>
-          <p style={{ fontSize: 16, color: 'var(--body)', marginBottom: 20 }}>
-            Still have questions? Our team is ready to help.
+        <div className="mt-20 text-center bg-[var(--bg-soft)] border border-[var(--border)] rounded-3xl p-10 md:p-12 reveal-delay-2">
+          <div className="w-12 h-12 rounded-2xl bg-[var(--orange-light)] text-[var(--orange)] flex items-center justify-center mx-auto mb-6">
+            <HelpCircle className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold text-[var(--dark)] mb-4 tracking-tight">Still have questions?</h3>
+          <p className="text-sm text-[var(--body)] mb-10 max-w-sm mx-auto leading-relaxed">
+            Can't find the answer you're looking for? Please chat with our friendly team.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <a href="mailto:hello@percelio.com" className="btn btn-primary">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                <rect x="2" y="4" width="12" height="9" rx="2"/>
-                <path d="M2 4l6 5 6-5"/>
-              </svg>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="mailto:hello@percelio.com" className="btn btn-primary btn-md">
+              <Mail className="w-4 h-4" />
               Email Us
             </a>
             <a
               href="https://wa.me/255700000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost"
+              className="btn btn-ghost btn-md bg-[var(--bg)]"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ color: '#25D366' }}>
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              WhatsApp
+              <MessageSquare className="w-4 h-4 text-green-500" />
+              WhatsApp Support
             </a>
           </div>
         </div>

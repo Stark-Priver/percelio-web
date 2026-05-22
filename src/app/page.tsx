@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import UserTypes from '@/components/UserTypes';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
-import Pricing from '@/components/Pricing';
 import Testimonials from '@/components/Testimonials';
 import Download from '@/components/Download';
 import FAQ from '@/components/FAQ';
@@ -20,7 +19,6 @@ export default function HomePage() {
         <UserTypes />
         <Features />
         <HowItWorks />
-        <Pricing />
         <Testimonials />
         <Download />
         <FAQ />

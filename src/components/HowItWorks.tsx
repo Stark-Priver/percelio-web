@@ -1,9 +1,11 @@
 'use client';
 
+import { UserPlus, Package, MapPin, CheckCircle2 } from 'lucide-react';
+
 const steps = [
   {
     num: '01',
-    icon: '👤',
+    icon: UserPlus,
     title: 'Create Your Account',
     desc: 'Sign up in 2 minutes. Choose your role — business owner, courier agent, logistics company, or end user. Percelio tailors the experience instantly.',
     color: '#E55934',
@@ -11,7 +13,7 @@ const steps = [
   },
   {
     num: '02',
-    icon: '📦',
+    icon: Package,
     title: 'Book or Accept a Shipment',
     desc: 'Businesses book pickups in under 60 seconds. Couriers accept nearby jobs from a live feed. Everything matched automatically by location and rating.',
     color: '#1565C0',
@@ -19,7 +21,7 @@ const steps = [
   },
   {
     num: '03',
-    icon: '📍',
+    icon: MapPin,
     title: 'Track in Real Time',
     desc: 'From pickup to drop-off, every milestone is visible. Live map, SMS alerts, and an accurate estimated arrival time — always.',
     color: '#5B21B6',
@@ -27,7 +29,7 @@ const steps = [
   },
   {
     num: '04',
-    icon: '✅',
+    icon: CheckCircle2,
     title: 'Confirm & Get Paid',
     desc: 'Digital proof of delivery captured automatically. Instant receipts for businesses. Same-day mobile money payouts for couriers. Zero paperwork.',
     color: '#2E7D32',
@@ -37,114 +39,68 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-pad" style={{ background: '#fff' }}>
+    <section id="how-it-works" className="section-pad bg-[var(--bg-soft)]">
       <div className="max-content container-px">
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 72 }}>
-          <div className="overline" style={{ marginBottom: 14 }}>Simple Process</div>
-          <h2 style={{ marginBottom: 18 }}>
+        <div className="text-center mb-20 reveal">
+          <div className="overline mb-4">Simple Process</div>
+          <h2 className="mb-6">
             Up and Running{' '}
-            <span style={{ color: 'var(--orange)' }}>in Minutes</span>
+            <span className="text-[var(--orange)]">in Minutes</span>
           </h2>
-          <p style={{ fontSize: 17, color: 'var(--body)', maxWidth: 500, margin: '0 auto', lineHeight: 1.65 }}>
+          <p className="text-lg text-[var(--body)] max-w-xl mx-auto leading-relaxed">
             No complex onboarding. No training required. Percelio is built for busy people on the move.
           </p>
         </div>
 
         {/* Steps */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, position: 'relative' }}>
-          {/* Connecting line */}
-          <div style={{
-            position: 'absolute',
-            top: 36,
-            left: '12.5%',
-            right: '12.5%',
-            height: 1,
-            background: 'linear-gradient(to right, #E55934, #1565C0, #5B21B6, #2E7D32)',
-            opacity: 0.15,
-            zIndex: 0,
-          }} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {/* Connecting line (desktop only) */}
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-[#E55934] via-[#5B21B6] to-[#2E7D32] opacity-20 z-0" />
 
           {steps.map((s, i) => (
-            <div key={i} style={{ position: 'relative', zIndex: 1 }}>
+            <div key={i} className="relative z-10 bg-[var(--bg)] p-8 rounded-3xl border border-[var(--border)] shadow-sm hover:shadow-md transition-shadow group">
               {/* Icon */}
-              <div style={{
-                width: 72,
-                height: 72,
-                borderRadius: 20,
-                background: s.bg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 28,
-                marginBottom: 20,
-                border: `1px solid ${s.color}20`,
-                position: 'relative',
-              }}>
-                {s.icon}
-                {/* Step number */}
-                <div style={{
-                  position: 'absolute',
-                  top: -8, right: -8,
-                  width: 22, height: 22,
-                  borderRadius: '50%',
-                  background: s.color,
-                  color: '#fff',
-                  fontSize: 10,
-                  fontWeight: 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 relative transition-transform duration-300 group-hover:scale-110"
+                style={{ backgroundColor: s.bg, color: s.color }}
+              >
+                <s.icon className="w-8 h-8" />
+                {/* Step number badge */}
+                <div
+                  className="absolute -top-3 -right-3 w-8 h-8 rounded-full text-white text-xs font-bold flex items-center justify-center border-4 border-[var(--bg)]"
+                  style={{ backgroundColor: s.color }}
+                >
                   {i + 1}
                 </div>
               </div>
 
-              <div style={{ fontSize: 10, fontWeight: 700, color: s.color, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>{s.num}</div>
-              <h4 style={{ fontSize: 17, fontWeight: 700, marginBottom: 10, color: 'var(--dark)', letterSpacing: '-0.015em' }}>{s.title}</h4>
-              <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.65 }}>{s.desc}</p>
+              <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: s.color }}>Step {s.num}</div>
+              <h4 className="text-lg font-bold mb-4 text-[var(--dark)] leading-tight">{s.title}</h4>
+              <p className="text-sm text-[var(--body)] leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
         {/* KPI strip */}
-        <div style={{
-          marginTop: 72,
-          background: 'var(--bg-soft)',
-          border: '1px solid var(--border)',
-          borderRadius: 20,
-          padding: '40px 48px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 40,
-          position: 'relative',
-          overflow: 'hidden',
-        }}>
-          {/* Decorative orange corner */}
-          <div style={{ position: 'absolute', top: 0, right: 0, width: 180, height: 180, background: 'radial-gradient(circle at top right, var(--orange-tint), transparent)', borderRadius: '0 20px 0 0' }} />
+        <div className="mt-20 bg-[var(--bg)] border border-[var(--border)] rounded-[2.5rem] p-12 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-12 relative overflow-hidden shadow-lifted">
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[var(--orange-tint)] to-transparent opacity-30 -mr-16 -mt-16 rounded-full" />
 
           {[
             { val: '< 60s', label: 'Average booking time', sub: 'From open to confirmed' },
             { val: '15%',   label: 'Avg delivery cost saved', sub: 'vs traditional logistics' },
             { val: '4.8★',  label: 'App store rating', sub: 'From 2,400+ reviews' },
           ].map(s => (
-            <div key={s.label} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: 8 }}>{s.val}</div>
-              <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--dark)', marginBottom: 4 }}>{s.label}</div>
-              <div style={{ fontSize: 13, color: 'var(--muted)' }}>{s.sub}</div>
+            <div key={s.label} className="text-center relative z-10">
+              <div className="text-4xl md:text-5xl font-black text-[var(--dark)] tracking-tighter mb-4">{s.val}</div>
+              <div className="text-base font-bold text-[var(--dark)] mb-2">{s.label}</div>
+              <div className="text-sm text-[var(--muted)] font-medium">{s.sub}</div>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`@media(max-width:860px){
-        .steps-grid{grid-template-columns:1fr 1fr!important;}
-      }
-      @media(max-width:600px){
-        .steps-grid{grid-template-columns:1fr!important;}
-        .kpi-grid{grid-template-columns:1fr!important;}
-      }`}</style>
     </section>
   );
 }

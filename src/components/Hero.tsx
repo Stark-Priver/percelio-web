@@ -1,186 +1,169 @@
 'use client';
 
+import { ArrowRight, Download, Play, CheckCircle2, MapPin, Package, Clock, ShieldCheck } from 'lucide-react';
+
 export default function Hero() {
   return (
-    <section style={{ paddingTop: 120, paddingBottom: 80, background: '#fff', overflow: 'hidden' }}>
+    <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-[var(--bg)] overflow-hidden">
       <div className="max-content container-px">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — copy */}
-          <div>
+          <div className="reveal">
             {/* Overline badge */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: 'var(--orange-light)', borderRadius: 100, padding: '5px 12px 5px 8px', marginBottom: 28 }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--orange)', display: 'inline-block', animation: 'pulseDot 2s ease-in-out infinite' }} />
-              <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--orange)', letterSpacing: '0.02em' }}>Now live in Tanzania 🇹🇿</span>
+            <div className="inline-flex items-center gap-2 bg-[var(--orange-light)] rounded-full px-4 py-1.5 mb-8 border border-[var(--orange)]/10">
+              <span className="w-2 h-2 rounded-full bg-[var(--orange)] pulse-dot" />
+              <span className="text-xs font-bold text-[var(--orange)] uppercase tracking-wider">Now live in Tanzania</span>
             </div>
 
-            <h1 style={{ fontSize: 'clamp(38px,5vw,62px)', fontWeight: 700, color: 'var(--dark)', lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 24 }}>
+            <h1 className="text-4xl md:text-6xl font-bold text-[var(--dark)] leading-[1.1] tracking-tighter mb-6">
               Smarter Deliveries<br />
-              for{' '}
-              <span style={{ color: 'var(--orange)' }}>Growing</span>
-              <br />Businesses
+              for <span className="text-[var(--orange)]">Growing</span><br />
+              Businesses
             </h1>
 
-            <p style={{ fontSize: 17, color: 'var(--body)', lineHeight: 1.65, maxWidth: 440, marginBottom: 36 }}>
+            <p className="text-lg text-[var(--body)] leading-relaxed max-w-lg mb-10">
               Percelio connects business owners, courier agents, and logistics companies across East Africa — real-time tracking, instant booking, full visibility on every parcel.
             </p>
 
             {/* Stats row */}
-            <div style={{ display: 'flex', gap: 32, marginBottom: 40, paddingBottom: 36, borderBottom: '1px solid var(--border)' }}>
+            <div className="flex gap-8 mb-10 pb-8 border-b border-[var(--border)] overflow-x-auto no-scrollbar">
               {[
                 { val: '3,000+', label: 'Active couriers' },
                 { val: '3.5M',   label: 'Parcels moved' },
                 { val: '24/7',   label: 'Live support' },
               ].map(s => (
-                <div key={s.label}>
-                  <div style={{ fontSize: 26, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.025em', lineHeight: 1 }}>{s.val}</div>
-                  <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4, fontWeight: 500 }}>{s.label}</div>
+                <div key={s.label} className="min-w-fit">
+                  <div className="text-2xl md:text-3xl font-bold text-[var(--dark)] tracking-tight">{s.val}</div>
+                  <div className="text-xs font-semibold text-[var(--muted)] uppercase tracking-wider mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
 
             {/* CTA buttons */}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}>
+            <div className="flex flex-wrap gap-4 mb-12">
               <a href="#download" className="btn btn-primary btn-lg">
                 Download App
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M8 2v8M4 8l4 4 4-4" />
-                </svg>
+                <Download className="w-5 h-5" />
               </a>
               <a href="#how-it-works" className="btn btn-ghost btn-lg">
                 See how it works
+                <Play className="w-4 h-4 fill-current" />
               </a>
             </div>
 
             {/* Trust logos */}
-            <div>
-              <p style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 14 }}>
+            <div className="opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <p className="text-[10px] font-bold text-[var(--muted)] uppercase tracking-widest mb-4">
                 Trusted by logistics teams worldwide
               </p>
-              <div style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>
+              <div className="flex gap-8 items-center flex-wrap">
                 {['TAZARA', 'SHIPIT', 'DEXPRESS', 'FASTEX', 'MOVEIT'].map(b => (
-                  <span key={b} style={{ fontSize: 13, fontWeight: 700, color: '#C8C8C8', letterSpacing: '0.05em' }}>{b}</span>
+                  <span key={b} className="text-sm font-black text-[var(--muted)] tracking-tighter">{b}</span>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Right — phone mockup */}
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          <div className="relative flex justify-center lg:justify-end reveal-delay-2">
             {/* Soft background circle */}
-            <div style={{
-              position: 'absolute',
-              width: 460,
-              height: 460,
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, var(--orange-tint) 0%, transparent 70%)',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }} />
+            <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[var(--orange-tint)] to-transparent opacity-50 blur-3xl -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-            <div className="float" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="float relative z-10">
               {/* Phone frame */}
-              <div className="phone-frame" style={{ width: 280, background: '#fff', position: 'relative' }}>
+              <div className="phone-frame w-[280px] md:w-[300px] bg-[var(--bg)] border-4 border-[var(--border)] overflow-hidden">
                 {/* Notch */}
-                <div style={{ height: 28, background: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '1px solid var(--border-light)' }}>
-                  <div style={{ width: 72, height: 18, borderRadius: 9, background: '#1A1A1A' }} />
+                <div className="h-7 bg-[var(--bg)] flex justify-center items-center border-b border-[var(--border-light)]">
+                  <div className="w-20 h-4 rounded-full bg-[var(--dark)]" />
                 </div>
 
                 {/* App content */}
-                <div style={{ padding: '16px 16px 24px', background: '#F8F7F5' }}>
+                <div className="p-4 pb-6 bg-[var(--bg-soft)]">
                   {/* Header */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                  <div className="flex justify-between items-center mb-5">
                     <div>
-                      <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 500 }}>Good morning 👋</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.01em' }}>Amani Business</div>
+                      <div className="text-[10px] text-[var(--muted)] font-medium">Good morning</div>
+                      <div className="text-sm font-bold text-[var(--dark)] tracking-tight">Amani Business</div>
                     </div>
-                    <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 15, fontWeight: 700 }}>A</div>
+                    <div className="w-9 h-9 rounded-full bg-[var(--orange)] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[var(--orange)]/20">A</div>
                   </div>
 
                   {/* Live tracking card */}
-                  <div style={{ background: '#fff', borderRadius: 14, padding: 14, marginBottom: 12, border: '1px solid var(--border)', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                      <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--orange)', display: 'inline-block', animation: 'pulseDot 2s ease-in-out infinite' }} />
-                      <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--orange)' }}>Live Tracking</span>
+                  <div className="bg-[var(--bg)] rounded-2xl p-4 mb-4 border border-[var(--border)] shadow-sm">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange)] animate-pulse" />
+                      <span className="text-[10px] font-bold text-[var(--orange)] uppercase tracking-wider">Live Tracking</span>
                     </div>
-                    <div style={{ fontSize: 10, color: 'var(--muted)', marginBottom: 3 }}>Order #PCT-2847</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.01em', marginBottom: 10 }}>Dar es Salaam → Arusha</div>
-                    <div style={{ height: 5, borderRadius: 3, background: '#F0F0F0', overflow: 'hidden', marginBottom: 6 }}>
-                      <div style={{ height: '100%', width: '67%', borderRadius: 3, background: 'var(--orange)' }} />
+                    <div className="text-[10px] text-[var(--muted)] mb-1">Order #PCT-2847</div>
+                    <div className="text-sm font-bold text-[var(--dark)] tracking-tight mb-3">Dar es Salaam → Arusha</div>
+                    <div className="h-1.5 rounded-full bg-[var(--border-light)] overflow-hidden mb-2">
+                      <div className="h-full w-2/3 rounded-full bg-[var(--orange)]" />
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: 10, color: 'var(--muted)' }}>67% complete</span>
-                      <span style={{ fontSize: 10, color: 'var(--orange)', fontWeight: 600 }}>Est. 4:30 PM</span>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] text-[var(--muted)]">67% complete</span>
+                      <span className="text-[10px] text-[var(--orange)] font-bold">Est. 4:30 PM</span>
                     </div>
                   </div>
 
                   {/* Stats grid */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 12 }}>
+                  <div className="grid grid-cols-2 gap-3 mb-4">
                     {[
-                      { label: 'Active Orders', val: '12',  color: 'var(--orange)' },
-                      { label: 'Delivered',     val: '348', color: '#2E7D32' },
-                      { label: 'In Transit',    val: '8',   color: '#1565C0' },
-                      { label: 'Pending',       val: '4',   color: '#E65100' },
+                      { label: 'Active', val: '12',  color: 'text-[var(--orange)]' },
+                      { label: 'Delivered', val: '348', color: 'text-green-500' },
                     ].map(s => (
-                      <div key={s.label} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 10, padding: '10px 12px' }}>
-                        <div style={{ fontSize: 9, color: 'var(--muted)', fontWeight: 500, marginBottom: 4 }}>{s.label}</div>
-                        <div style={{ fontSize: 18, fontWeight: 700, color: s.color, letterSpacing: '-0.02em' }}>{s.val}</div>
+                      <div key={s.label} className="bg-[var(--bg)] border border-[var(--border)] rounded-xl p-3">
+                        <div className="text-[9px] text-[var(--muted)] font-bold uppercase tracking-wider mb-1">{s.label}</div>
+                        <div className={`text-lg font-bold ${s.color} tracking-tight`}>{s.val}</div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Map preview */}
-                  <div style={{ borderRadius: 12, overflow: 'hidden', height: 100, background: 'linear-gradient(135deg, #E8F4FD, #EDF7EE)', position: 'relative', border: '1px solid var(--border)' }}>
-                    <svg width="100%" height="100%" viewBox="0 0 260 100">
-                      {/* Grid */}
-                      {[20,40,60,80].map(y => <line key={y} x1="0" y1={y} x2="260" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="1"/>)}
-                      {[50,100,150,200].map(x => <line key={x} x1={x} y1="0" x2={x} y2="100" stroke="rgba(0,0,0,0.04)" strokeWidth="1"/>)}
-                      {/* Route */}
-                      <path d="M20,78 C60,75 90,40 140,42 C190,44 220,65 245,30" stroke="var(--orange)" strokeWidth="2.5" fill="none" strokeDasharray="5,3" opacity="0.7"/>
-                      {/* Origin */}
-                      <circle cx="20" cy="78" r="5" fill="var(--orange)" />
-                      <circle cx="20" cy="78" r="9" fill="var(--orange)" opacity="0.2" />
-                      {/* Courier */}
-                      <circle cx="140" cy="42" r="6" fill="#fff" stroke="var(--orange)" strokeWidth="2"/>
-                      {/* Dest */}
-                      <circle cx="245" cy="30" r="5" fill="#2E7D32" />
-                      <circle cx="245" cy="30" r="9" fill="#2E7D32" opacity="0.2" />
+                  {/* Map preview with icons */}
+                  <div className="rounded-xl overflow-hidden h-28 bg-[var(--bg)] relative border border-[var(--border)]">
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,var(--orange)_0%,transparent_50%)]" />
+                    <div className="absolute top-4 left-6">
+                       <MapPin className="w-4 h-4 text-[var(--orange)]" />
+                    </div>
+                    <div className="absolute bottom-4 right-6">
+                       <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    </div>
+                    <svg className="absolute inset-0 w-full h-full p-4" viewBox="0 0 200 100">
+                      <path d="M20,20 C60,20 100,80 180,80" fill="none" stroke="var(--orange)" strokeWidth="2" strokeDasharray="4 4" />
                     </svg>
-                    <div style={{ position: 'absolute', bottom: 6, left: 8, fontSize: 9, color: 'var(--muted)', fontWeight: 500 }}>Live Map View</div>
+                    <div className="absolute bottom-2 left-3 text-[8px] font-bold text-[var(--muted)] uppercase tracking-widest">Route Overview</div>
                   </div>
                 </div>
               </div>
 
               {/* Floating badges */}
-              <div style={{
-                position: 'absolute', left: -64, top: '22%',
-                background: '#fff', border: '1px solid var(--border)', borderRadius: 12,
-                padding: '10px 14px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-              }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--orange)', letterSpacing: '-0.02em' }}>+348</div>
-                <div style={{ fontSize: 10, color: 'var(--muted)', fontWeight: 500 }}>Deliveries</div>
+              <div className="absolute -left-12 top-1/4 bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-4 shadow-xl hidden md:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                    <Package className="w-5 h-5 text-[var(--orange)]" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-[var(--orange)] leading-none">+348</div>
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase mt-1">Monthly</div>
+                  </div>
+                </div>
               </div>
 
-              <div style={{
-                position: 'absolute', right: -52, bottom: '30%',
-                background: '#fff', border: '1px solid var(--border)', borderRadius: 12,
-                padding: '10px 14px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-              }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#2E7D32', letterSpacing: '-0.02em' }}>99.5%</div>
-                <div style={{ fontSize: 10, color: 'var(--muted)', fontWeight: 500 }}>Success rate</div>
+              <div className="absolute -right-10 bottom-1/4 bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-4 shadow-xl hidden md:block">
+                 <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
+                    <ShieldCheck className="w-5 h-5 text-green-500" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-green-500 leading-none">99.5%</div>
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase mt-1">Success</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 860px) {
-          .hero-grid { grid-template-columns: 1fr !important; }
-          .hero-phone { display: none; }
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,59 +1,55 @@
+'use client';
+
+import { Globe, Smartphone, Bell, Wallet } from 'lucide-react';
+
+const AppleIcon = () => (
+  <svg viewBox="0 0 384 512" className="w-6 h-6 group-hover:text-[var(--orange)] transition-colors fill-current">
+    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+  </svg>
+);
+
+const PlayStoreIcon = () => (
+  <svg viewBox="0 0 512 512" className="w-6 h-6 group-hover:text-[var(--orange)] transition-colors fill-current">
+    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.1 18-26.7-1.2-36.3zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+  </svg>
+);
+
 export default function Download() {
   return (
-    <section id="download" className="section-pad" style={{ background: '#fff' }}>
+    <section id="download" className="section-pad bg-[var(--bg)]">
       <div className="max-content container-px">
-        <div style={{
-          background: 'var(--bg-soft)',
-          border: '1px solid var(--border)',
-          borderRadius: 28,
-          overflow: 'hidden',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          alignItems: 'center',
-          gap: 0,
-        }}>
+        <div className="bg-[var(--bg-soft)] border border-[var(--border)] rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center gap-0 shadow-soft">
 
           {/* Left — copy */}
-          <div style={{ padding: 'clamp(36px, 5vw, 64px)', paddingRight: 40 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 7,
-              background: 'var(--orange-light)', borderRadius: 100, padding: '5px 12px 5px 8px', marginBottom: 28,
-            }}>
-              <span>📱</span>
-              <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--orange)' }}>iOS & Android — Free to download</span>
+          <div className="p-12 md:p-16 lg:p-20">
+            <div className="inline-flex items-center gap-2 bg-[var(--orange-light)] rounded-full px-4 py-1.5 mb-8 border border-[var(--orange)]/10">
+              <Smartphone className="w-3.5 h-3.5 text-[var(--orange)]" />
+              <span className="text-xs font-bold text-[var(--orange)] uppercase tracking-wider">Available on iOS & Android</span>
             </div>
 
-            <h2 style={{ marginBottom: 18, lineHeight: 1.12 }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-[1.1] tracking-tighter text-[var(--dark)]">
               Stay Updated.<br />
-              Stay <span style={{ color: 'var(--orange)' }}>Ahead.</span>
+              Stay <span className="text-[var(--orange)]">Ahead.</span>
             </h2>
 
-            <p style={{ fontSize: 17, color: 'var(--body)', lineHeight: 1.65, marginBottom: 36, maxWidth: 420 }}>
+            <p className="text-lg text-[var(--body)] leading-relaxed mb-10 max-w-md">
               Download the Percelio app and manage every delivery — from booking to proof of delivery — right from your phone. Available in Swahili and English.
             </p>
 
             {/* Store buttons */}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 32 }}>
+            <div className="flex flex-wrap gap-4 mb-10">
               {[
                 {
                   store: 'App Store',
                   sub: 'Download on the',
                   href: 'https://apps.apple.com',
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                  ),
+                  icon: AppleIcon,
                 },
                 {
                   store: 'Google Play',
                   sub: 'Get it on',
                   href: 'https://play.google.com',
-                  icon: (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3.18 23.76A2 2 0 012 22V2a2 2 0 011.18-1.76L14 12 3.18 23.76zm17.27-9.86l-2.88-1.65L14 12l3.57 3.57 2.88-1.65A2 2 0 0022 12a2 2 0 00-1.55-2.1zM3.96.62l10.6 10.6L11.8 14l-7.84-7.84A2 2 0 012 4.3V2A2 2 0 013.96.62zm10.6 12.16L3.96 23.38A2 2 0 012 21.7v-1.68l7.84-7.84 2.72 2.6z"/>
-                    </svg>
-                  ),
+                  icon: PlayStoreIcon,
                 },
               ].map(s => (
                 <a
@@ -61,119 +57,105 @@ export default function Download() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 12,
-                    background: 'var(--dark)', color: '#fff',
-                    padding: '12px 20px', borderRadius: 12,
-                    textDecoration: 'none', transition: 'all 0.2s ease',
-                    border: '1px solid transparent',
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = '#333')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'var(--dark)')}
+                  className="flex items-center gap-3 bg-[var(--dark)] text-white px-6 py-3 rounded-2xl hover:scale-[1.02] transition-all no-underline group border border-transparent"
                 >
-                  {s.icon}
-                  <div>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{s.sub}</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, lineHeight: 1.2 }}>{s.store}</div>
+                  <s.icon />
+                  <div className="text-left">
+                    <div className="text-[10px] text-white/50 font-bold uppercase tracking-widest leading-none mb-1">{s.sub}</div>
+                    <div className="text-base font-bold leading-none">{s.store}</div>
                   </div>
                 </a>
               ))}
             </div>
 
-            <p style={{ fontSize: 13, color: 'var(--muted)' }}>
-              Or access the web dashboard at{' '}
-              <a href="https://app.percelio.com" style={{ color: 'var(--orange)', textDecoration: 'none', fontWeight: 600 }}>
-                app.percelio.com
-              </a>
-            </p>
+            <div className="flex items-center gap-3 text-sm text-[var(--muted)] font-medium">
+              <Globe className="w-4 h-4 text-[var(--orange)]" />
+              <span>
+                Or access the web dashboard at{' '}
+                <a href="https://app.percelio.com" className="text-[var(--orange)] font-bold no-underline hover:underline">
+                  app.percelio.com
+                </a>
+              </span>
+            </div>
           </div>
 
           {/* Right — phone mockups */}
-          <div style={{
-            background: 'linear-gradient(135deg, var(--orange-tint) 0%, #fff 60%)',
-            padding: '40px 32px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-            minHeight: 420,
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            {/* Decorative circles */}
-            <div style={{ position: 'absolute', top: -60, right: -60, width: 240, height: 240, borderRadius: '50%', border: '1px solid var(--orange-tint)', opacity: 0.6 }} />
-            <div style={{ position: 'absolute', top: -30, right: -30, width: 160, height: 160, borderRadius: '50%', border: '1px solid var(--orange)', opacity: 0.15 }} />
+          <div className="bg-gradient-to-br from-[var(--orange-tint)] to-[var(--bg-soft)] p-12 md:p-20 flex justify-center items-end min-h-[500px] relative overflow-hidden border-l border-[var(--border)]">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-80 h-80 border border-[var(--orange)]/10 rounded-full -mr-40 -mt-40" />
+            <div className="absolute top-20 right-20 w-40 h-40 bg-[var(--orange)]/5 rounded-full blur-2xl" />
 
             {/* Back phone */}
-            <div style={{ width: 180, marginRight: -32, marginBottom: 32, position: 'relative', zIndex: 1 }}>
-              <div className="phone-frame" style={{ background: 'var(--dark)' }}>
-                <div style={{ height: 20, display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ width: 52, height: 14, borderRadius: 7, background: '#000' }} />
+            <div className="w-[180px] -mr-12 mb-12 relative z-10 hidden md:block">
+              <div className="phone-frame bg-[var(--dark)] border-4 border-black">
+                <div className="h-6 bg-black flex justify-center items-center">
+                  <div className="w-12 h-3 rounded-full bg-[#111]" />
                 </div>
-                <div style={{ padding: '14px 14px 20px', background: '#1A1A2E' }}>
-                  <p style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)', marginBottom: 8 }}>Notifications</p>
+                <div className="p-4 bg-[#0A0A0F]">
+                  <p className="text-[8px] font-bold text-white/30 uppercase tracking-widest mb-4">Notifications</p>
                   {[
-                    { icon: '✅', msg: 'Parcel delivered!', color: '#22C55E' },
-                    { icon: '🚴', msg: 'Courier en route',  color: '#E55934' },
-                    { icon: '💰', msg: 'Payment received',  color: '#F59E0B' },
+                    { icon: Bell, msg: 'Parcel delivered!', color: 'text-green-500', bg: 'bg-green-500/10' },
+                    { icon: Smartphone, msg: 'Courier en route',  color: 'text-[var(--orange)]', bg: 'bg-[var(--orange)]/10' },
+                    { icon: Wallet, msg: 'Payment received',  color: 'text-blue-500', bg: 'bg-blue-500/10' },
                   ].map((n, i) => (
-                    <div key={i} style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 10, padding: '8px 10px', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span style={{ fontSize: 12 }}>{n.icon}</span>
-                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)', flex: 1 }}>{n.msg}</span>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: n.color, flexShrink: 0 }} />
+                    <div key={i} className="bg-white/5 rounded-xl p-3 mb-3 flex items-center gap-3 border border-white/5">
+                      <div className={`w-6 h-6 rounded-lg ${n.bg} flex items-center justify-center`}>
+                        <n.icon className={`w-3 h-3 ${n.color}`} />
+                      </div>
+                      <span className="text-[9px] text-white/70 font-medium flex-1">{n.msg}</span>
                     </div>
                   ))}
-                  <div style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 10, padding: '10px 12px', marginTop: 8 }}>
-                    <p style={{ fontSize: 9, color: '#4ADE80', fontWeight: 600, marginBottom: 3 }}>Today's Earnings</p>
-                    <p style={{ fontSize: 16, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>TZS 45,000</p>
-                    <p style={{ fontSize: 9, color: '#4ADE80' }}>+18% vs yesterday</p>
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 mt-6">
+                    <p className="text-[8px] text-green-500 font-bold uppercase mb-1">Today's Earnings</p>
+                    <p className="text-sm font-black text-white tracking-tight">TZS 45,000</p>
+                    <p className="text-[8px] text-green-500 font-medium mt-1">+18% vs yesterday</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Front phone */}
-            <div style={{ width: 200, position: 'relative', zIndex: 2 }} className="float">
-              <div className="phone-frame" style={{ background: '#fff' }}>
-                <div style={{ height: 24, background: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '1px solid var(--border-light)' }}>
-                  <div style={{ width: 64, height: 16, borderRadius: 8, background: '#1A1A1A' }} />
+            <div className="w-[200px] md:w-[220px] relative z-20 float">
+              <div className="phone-frame bg-[var(--bg)] border-4 border-[var(--border)] shadow-2xl">
+                <div className="h-7 bg-[var(--bg)] flex justify-center items-center border-b border-[var(--border-light)]">
+                  <div className="w-16 h-4 rounded-full bg-[var(--dark)]" />
                 </div>
-                <div style={{ padding: '14px 14px 20px', background: '#F8F7F5' }}>
+                <div className="p-5 bg-[var(--bg-soft)]">
                   {/* Header */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+                  <div className="flex justify-between items-center mb-6">
                     <div>
-                      <p style={{ fontSize: 9, color: 'var(--muted)' }}>Good morning 👋</p>
-                      <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--dark)' }}>Amani Business</p>
+                      <p className="text-[8px] text-[var(--muted)] font-bold uppercase tracking-widest">Welcome back</p>
+                      <p className="text-xs font-bold text-[var(--dark)] mt-0.5">Amani Business</p>
                     </div>
-                    <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700 }}>A</div>
+                    <div className="w-8 h-8 rounded-full bg-[var(--orange)] flex items-center justify-center text-white text-[10px] font-bold shadow-lg shadow-[var(--orange)]/20">A</div>
                   </div>
                   {/* Map */}
-                  <div style={{ borderRadius: 12, overflow: 'hidden', height: 90, background: 'linear-gradient(135deg, #EBF5FF, #EDF7EE)', marginBottom: 10, border: '1px solid var(--border)', position: 'relative' }}>
-                    <svg width="100%" height="100%" viewBox="0 0 180 90">
-                      <path d="M10,72 C35,65 60,38 90,40 C120,42 145,60 170,28" stroke="#E55934" strokeWidth="2.5" fill="none" strokeDasharray="5,3" opacity="0.8"/>
-                      <circle cx="10" cy="72" r="5" fill="#E55934"/>
-                      <circle cx="10" cy="72" r="10" fill="#E55934" opacity="0.15"/>
-                      <circle cx="90" cy="40" r="5" fill="#fff" stroke="#E55934" strokeWidth="2"/>
-                      <circle cx="170" cy="28" r="5" fill="#2E7D32"/>
+                  <div className="rounded-xl overflow-hidden h-24 bg-[var(--bg)] mb-5 border border-[var(--border)] relative group">
+                    <div className="absolute inset-0 opacity-10 bg-[var(--orange)] group-hover:opacity-20 transition-opacity" />
+                    <svg className="absolute inset-0 w-full h-full p-2" viewBox="0 0 100 50">
+                      <path d="M10,40 C30,35 70,15 90,10" fill="none" stroke="var(--orange)" strokeWidth="2" strokeDasharray="3 2" />
+                      <circle cx="10" cy="40" r="3" fill="var(--orange)" />
+                      <circle cx="90" cy="10" r="3" fill="green" />
                     </svg>
-                    <p style={{ position: 'absolute', bottom: 4, left: 8, fontSize: 8, color: 'var(--muted)' }}>Live tracking</p>
+                    <p className="absolute bottom-2 left-3 text-[7px] font-bold text-[var(--muted)] uppercase">Live map</p>
                   </div>
                   {/* Status */}
-                  <div style={{ background: '#fff', borderRadius: 10, padding: '10px 12px', border: '1px solid var(--border)', marginBottom: 8 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 6 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--orange)', display: 'inline-block', animation: 'pulseDot 2s ease-in-out infinite' }} />
-                      <span style={{ fontSize: 9, color: 'var(--orange)', fontWeight: 600 }}>Order #PCT-2847</span>
+                  <div className="bg-[var(--bg)] rounded-xl p-4 border border-[var(--border)] shadow-sm mb-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange)] animate-pulse" />
+                      <span className="text-[8px] font-bold text-[var(--orange)] uppercase tracking-widest">PCT-2847</span>
                     </div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--dark)', marginBottom: 6 }}>Dar es Salaam → Arusha</p>
-                    <div style={{ height: 4, borderRadius: 2, background: '#F0F0F0', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: '67%', borderRadius: 2, background: 'var(--orange)' }} />
+                    <p className="text-[10px] font-bold text-[var(--dark)] mb-3 leading-tight">Dar es Salaam → Arusha</p>
+                    <div className="h-1 rounded-full bg-[var(--border-light)] overflow-hidden">
+                      <div className="h-full w-2/3 rounded-full bg-[var(--orange)]" />
                     </div>
                   </div>
                   {/* Quick stats */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                  <div className="grid grid-cols-2 gap-2">
                     {[{ l: 'Active', v: '12' }, { l: 'Delivered', v: '348' }].map(s => (
-                      <div key={s.l} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 10px' }}>
-                        <p style={{ fontSize: 8, color: 'var(--muted)', marginBottom: 2 }}>{s.l}</p>
-                        <p style={{ fontSize: 14, fontWeight: 700, color: 'var(--dark)' }}>{s.v}</p>
+                      <div key={s.l} className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-3">
+                        <p className="text-[7px] text-[var(--muted)] font-bold uppercase mb-1">{s.l}</p>
+                        <p className="text-xs font-bold text-[var(--dark)]">{s.v}</p>
                       </div>
                     ))}
                   </div>
@@ -183,10 +165,6 @@ export default function Download() {
           </div>
         </div>
       </div>
-
-      <style>{`@media(max-width:800px){
-        .download-grid{grid-template-columns:1fr!important;}
-      }`}</style>
     </section>
   );
 }

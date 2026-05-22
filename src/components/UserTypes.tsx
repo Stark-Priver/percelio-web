@@ -1,14 +1,15 @@
 'use client';
+
 import { useState } from 'react';
+import { Briefcase, Bike, Truck, User, CheckCircle2, ArrowRight, LayoutDashboard, Zap, ShieldCheck } from 'lucide-react';
 
 const roles = [
   {
     id: 'business',
-    emoji: '🏢',
+    icon: Briefcase,
     label: 'Business Owners',
     tagline: 'Ship smarter, grow faster',
     color: 'var(--orange)',
-    colorHex: '#E55934',
     features: [
       'Book pickups in under 60 seconds',
       'Real-time parcel tracking dashboard',
@@ -21,11 +22,10 @@ const roles = [
   },
   {
     id: 'courier',
-    emoji: '🛵',
+    icon: Bike,
     label: 'Courier Agents',
     tagline: 'Earn more, deliver with ease',
     color: '#1565C0',
-    colorHex: '#1565C0',
     features: [
       'Smart route optimization engine',
       'Instant job notifications and matching',
@@ -38,11 +38,10 @@ const roles = [
   },
   {
     id: 'logistics',
-    emoji: '🚛',
+    icon: Truck,
     label: 'Logistics Companies',
     tagline: 'Manage fleets, maximize revenue',
     color: '#5B21B6',
-    colorHex: '#5B21B6',
     features: [
       'Full fleet management and GPS tracking',
       'Driver assignment and scheduling',
@@ -55,11 +54,10 @@ const roles = [
   },
   {
     id: 'user',
-    emoji: '📦',
+    icon: User,
     label: 'End Users',
     tagline: 'Receive with confidence',
     color: '#2E7D32',
-    colorHex: '#2E7D32',
     features: [
       'Track any parcel in real time',
       'SMS and push delivery notifications',
@@ -77,123 +75,143 @@ export default function UserTypes() {
   const role = roles.find(r => r.id === active)!;
 
   return (
-    <section id="roles" className="section-pad" style={{ background: 'var(--bg-soft)' }}>
+    <section id="roles" className="section-pad bg-[var(--bg-soft)]">
       <div className="max-content container-px">
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <div className="overline" style={{ marginBottom: 14 }}>Built For Everyone</div>
-          <h2 style={{ marginBottom: 16 }}>
+        <div className="text-center mb-16 reveal">
+          <div className="overline mb-4">Built For Everyone</div>
+          <h2 className="mb-4">
             One Platform,{' '}
-            <span style={{ color: 'var(--orange)' }}>Four Perspectives</span>
+            <span className="text-[var(--orange)]">Four Perspectives</span>
           </h2>
-          <p style={{ fontSize: 17, color: 'var(--body)', maxWidth: 500, margin: '0 auto', lineHeight: 1.65 }}>
+          <p className="text-lg text-[var(--body)] max-w-xl mx-auto leading-relaxed">
             Whether shipping, delivering, managing fleets, or receiving — Percelio adapts to your role.
           </p>
         </div>
 
         {/* Role tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 52, flexWrap: 'wrap' }}>
+        <div className="flex justify-center gap-2 mb-16 flex-wrap reveal-delay-1">
           {roles.map(r => (
             <button
               key={r.id}
               onClick={() => setActive(r.id)}
+              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-semibold transition-all duration-300 border-2 ${
+                active === r.id
+                  ? 'text-white border-transparent'
+                  : 'bg-[var(--bg)] text-[var(--body)] border-[var(--border)] hover:border-[var(--muted)]'
+              }`}
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: 7,
-                padding: '9px 18px', borderRadius: 100, border: 'none',
-                fontSize: 14, fontWeight: 600, cursor: 'pointer',
-                fontFamily: 'var(--font)',
-                transition: 'all 0.2s ease',
-                background: active === r.id ? r.colorHex : '#fff',
-                color: active === r.id ? '#fff' : 'var(--body)',
-                boxShadow: active === r.id ? `0 4px 16px ${r.colorHex}30` : '0 1px 4px rgba(0,0,0,0.06)',
-                border: `1.5px solid ${active === r.id ? r.colorHex : 'var(--border)'}`,
+                backgroundColor: active === r.id ? r.color : undefined,
+                boxShadow: active === r.id ? `0 8px 24px ${r.color}40` : undefined
               }}
             >
-              <span style={{ fontSize: 15 }}>{r.emoji}</span>
+              <r.icon className="w-4 h-4" />
               {r.label}
             </button>
           ))}
         </div>
 
         {/* Content */}
-        <div key={active} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left */}
-          <div>
-            <div style={{ fontSize: 42, marginBottom: 20 }}>{role.emoji}</div>
-            <h3 style={{ marginBottom: 6, color: 'var(--dark)' }}>{role.label}</h3>
-            <p style={{ fontSize: 16, color: role.colorHex, fontWeight: 600, marginBottom: 28 }}>{role.tagline}</p>
+          <div key={`${active}-text`} className="reveal">
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-xl"
+              style={{ backgroundColor: `${role.color}10`, color: role.color }}
+            >
+              <role.icon className="w-8 h-8" />
+            </div>
+            <h3 className="text-3xl font-bold mb-2 text-[var(--dark)]">{role.label}</h3>
+            <p className="text-lg font-semibold mb-8" style={{ color: role.color }}>{role.tagline}</p>
 
-            <ul style={{ listStyle: 'none', padding: 0, marginBottom: 36 }}>
+            <ul className="space-y-4 mb-10 p-0 list-none">
               {role.features.map(f => (
-                <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--border-light)', fontSize: 15, color: 'var(--body)' }}>
-                  <span style={{ width: 20, height: 20, borderRadius: '50%', background: `${role.colorHex}18`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke={role.colorHex} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 5l2 2 4-4"/>
-                    </svg>
-                  </span>
-                  {f}
+                <li key={f} className="flex items-center gap-4 py-3 border-b border-[var(--border-light)] text-[var(--body)] group">
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors"
+                    style={{ backgroundColor: `${role.color}15`, color: role.color }}
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="text-base group-hover:text-[var(--dark)] transition-colors">{f}</span>
                 </li>
               ))}
             </ul>
 
             <a
               href="#download"
-              className="btn"
-              style={{ background: role.colorHex, color: '#fff', fontFamily: 'var(--font)', boxShadow: `0 4px 16px ${role.colorHex}30` }}
+              className="btn text-white px-8 py-4 rounded-xl shadow-2xl transition-all hover:scale-[1.02]"
+              style={{
+                backgroundColor: role.color,
+                boxShadow: `0 12px 32px ${role.color}40`
+              }}
             >
               Get Started as {role.label.split(' ')[0]}
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+              <ArrowRight className="w-5 h-5 ml-2" />
             </a>
           </div>
 
           {/* Right — dashboard card */}
-          <div>
-            <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 20, padding: 24, boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+          <div key={`${active}-card`} className="reveal-delay-2">
+            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8 shadow-lifted">
               {/* Card header */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-                <div>
-                  <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 500 }}>{role.emoji} {role.label} Dashboard</div>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.01em', marginTop: 2 }}>Percelio Platform</div>
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${role.color}10`, color: role.color }}
+                  >
+                    <role.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest">{role.label}</div>
+                    <div className="text-sm font-bold text-[var(--dark)] tracking-tight">Active Session</div>
+                  </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2E7D32', display: 'inline-block', animation: 'pulseDot 2s ease-in-out infinite' }} />
-                  <span style={{ fontSize: 11, color: '#2E7D32', fontWeight: 600 }}>Live</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full border border-green-500/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[10px] font-bold text-green-500 uppercase tracking-widest">Live Now</span>
                 </div>
               </div>
 
               {/* Stats */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 20 }}>
+              <div className="grid grid-cols-3 gap-4 mb-8">
                 {role.stats.map(s => (
-                  <div key={s.label} style={{ background: 'var(--bg-soft)', borderRadius: 12, padding: '12px 14px' }}>
-                    <div style={{ fontSize: 10, color: 'var(--muted)', fontWeight: 500, marginBottom: 4 }}>{s.label}</div>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--dark)', letterSpacing: '-0.02em' }}>{s.val}</div>
+                  <div key={s.label} className="bg-[var(--bg-soft)] rounded-2xl p-5 border border-[var(--border-light)] hover:border-[var(--muted)]/20 transition-colors">
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-wider mb-2">{s.label}</div>
+                    <div className="text-xl font-bold text-[var(--dark)] tracking-tight">{s.val}</div>
                   </div>
                 ))}
               </div>
 
               {/* Activity */}
               <div>
-                <div style={{ fontSize: 10, color: 'var(--muted)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 10 }}>Recent Activity</div>
-                {[
-                  { text: 'Shipment #PCT-2847 picked up',   time: '2m ago',  dot: role.colorHex },
-                  { text: 'Payment confirmed — TZS 12,000', time: '15m ago', dot: '#2E7D32' },
-                  { text: 'New order request from Mwanza',  time: '1h ago',  dot: '#E65100' },
-                ].map((a, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 0', borderBottom: i < 2 ? '1px solid var(--border-light)' : 'none' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: a.dot, flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, color: 'var(--body)', flex: 1 }}>{a.text}</span>
-                    <span style={{ fontSize: 11, color: 'var(--muted)', flexShrink: 0 }}>{a.time}</span>
-                  </div>
-                ))}
+                <div className="flex items-center gap-2 mb-6">
+                  <LayoutDashboard className="w-3 h-3 text-[var(--muted)]" />
+                  <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest">System Activity</div>
+                </div>
+                <div className="space-y-1">
+                  {[
+                    { text: 'Shipment #PCT-2847 updated', time: '2m ago', icon: Zap, color: role.color },
+                    { text: 'Payment confirmed via M-Pesa', time: '15m ago', icon: CheckCircle2, color: '#10B981' },
+                    { text: 'Security scan completed', time: '1h ago', icon: ShieldCheck, color: '#6366F1' },
+                  ].map((a, i) => (
+                    <div key={i} className={`flex items-center gap-4 p-4 rounded-xl transition-colors hover:bg-[var(--bg-soft)] ${i < 2 ? 'border-b border-[var(--border-light)]' : ''}`}>
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${a.color}10`, color: a.color }}>
+                        <a.icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-sm text-[var(--body)] font-medium flex-1">{a.text}</span>
+                      <span className="text-[10px] text-[var(--muted)] font-bold uppercase">{a.time}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`@media(max-width:860px){.roles-grid{grid-template-columns:1fr!important;}}`}</style>
     </section>
   );
 }
