@@ -5,7 +5,7 @@ import { ArrowRight, Download, Play, CheckCircle2, MapPin, Package, Clock, Shiel
 
 export default function Hero() {
   return (
-    <section className="pt-20 md:pt-28 pb-12 md:pb-20 bg-[var(--bg)] overflow-hidden">
+    <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-[var(--bg)] overflow-hidden">
       <div className="max-content container-px">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -28,7 +28,7 @@ export default function Hero() {
             </p>
 
             {/* Stats row */}
-            <div className="flex gap-8 mb-10 pb-8 border-b border-[var(--border)] overflow-x-auto no-scrollbar">
+            <div className="flex gap-8 mb-8 pb-6 border-b border-[var(--border)] overflow-x-auto no-scrollbar">
               {[
                 { val: '3,000+', label: 'Active couriers' },
                 { val: '3.5M',   label: 'Parcels moved' },
@@ -42,7 +42,7 @@ export default function Hero() {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4 mb-8">
               <Link href="/download" className="btn btn-primary btn-lg">
                 Download App
                 <Download className="w-5 h-5" />
