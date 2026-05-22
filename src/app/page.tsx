@@ -8,13 +8,14 @@ import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import Download from '@/components/Download';
 import FAQ from '@/components/FAQ';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: 68 }}>
+      <main className="pt-[68px]">
         <Hero />
         <UserTypes />
         <Features />
@@ -22,6 +23,7 @@ export default function HomePage() {
         <Testimonials />
         <Download />
         <FAQ />
+        <Contact />
       </main>
       <Footer />
     </>

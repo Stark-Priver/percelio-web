@@ -1,12 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowRight, Download, Play, CheckCircle2, MapPin, Package, Clock, ShieldCheck } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-[var(--bg)] overflow-hidden">
+    <section className="pt-20 md:pt-28 pb-12 md:pb-20 bg-[var(--bg)] overflow-hidden">
       <div className="max-content container-px">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — copy */}
           <div className="reveal">
@@ -42,14 +43,14 @@ export default function Hero() {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4 mb-12">
-              <a href="#download" className="btn btn-primary btn-lg">
+              <Link href="/download" className="btn btn-primary btn-lg">
                 Download App
                 <Download className="w-5 h-5" />
-              </a>
-              <a href="#how-it-works" className="btn btn-ghost btn-lg">
+              </Link>
+              <Link href="/how-it-works" className="btn btn-ghost btn-lg">
                 See how it works
                 <Play className="w-4 h-4 fill-current" />
-              </a>
+              </Link>
             </div>
 
             {/* Trust logos */}
