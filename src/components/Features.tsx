@@ -47,7 +47,7 @@ export default function Features() {
       <div className="max-content container-px">
 
         {/* Header */}
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-10 reveal">
           <div className="overline mb-4">Platform Capabilities</div>
           <h2 className="mb-6">
             Tools That Power<br />
@@ -76,7 +76,7 @@ export default function Features() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 text-center bg-[var(--bg-soft)] border border-[var(--border)] rounded-2xl p-8 reveal-delay-2">
+        <div className="mt-10 text-center bg-[var(--bg-soft)] border border-[var(--border)] rounded-2xl p-6 reveal-delay-2">
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
             <span className="flex items-center gap-3 text-sm font-medium text-[var(--body)]">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

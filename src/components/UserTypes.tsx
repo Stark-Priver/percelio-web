@@ -80,7 +80,7 @@ export default function UserTypes() {
       <div className="max-content container-px">
 
         {/* Header */}
-        <div className="text-center mb-12 reveal">
+        <div className="text-center mb-8 reveal">
           <div className="overline mb-4">End-to-End Delivery Flow</div>
           <h2 className="mb-4">
             One Platform,{' '}
@@ -92,18 +92,18 @@ export default function UserTypes() {
         </div>
 
         {/* Role tabs (Stages) */}
-        <div className="relative mb-16 reveal-delay-1">
+        <div className="relative mb-10 reveal-delay-1">
           {/* Connector Line */}
           <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[var(--border)] -translate-y-1/2 hidden lg:block z-0" />
 
-          <div className="flex justify-between gap-4 flex-wrap relative z-10">
+          <div className="flex justify-between gap-2 flex-wrap relative z-10">
             {roles.map((r, idx) => (
               <div key={r.id} className="flex flex-col items-center">
                 <button
                   onClick={() => setActive(r.id)}
-                  className={`flex flex-col items-center gap-3 p-4 rounded-2xl transition-all duration-500 border-2 group ${
+                  className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-500 border-2 group ${
                     active === r.id
-                      ? 'bg-[var(--bg)] border-[var(--orange)] shadow-xl scale-110'
+                      ? 'bg-[var(--bg)] border-[var(--orange)] shadow-xl scale-105'
                       : 'bg-[var(--bg-soft)] border-transparent hover:border-[var(--muted)]/20'
                   }`}
                 >
@@ -138,17 +138,17 @@ export default function UserTypes() {
           {/* Left */}
           <div key={`${active}-text`} className="reveal">
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-xl"
+              className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-xl"
               style={{ backgroundColor: `${role.color}10`, color: role.color }}
             >
-              <role.icon className="w-8 h-8" />
+              <role.icon className="w-6 h-6" />
             </div>
             <h3 className="text-3xl font-bold mb-2 text-[var(--dark)]">{role.label}</h3>
             <p className="text-lg font-semibold mb-8" style={{ color: role.color }}>{role.tagline}</p>
 
-            <ul className="space-y-4 mb-10 p-0 list-none">
+            <ul className="space-y-2 mb-8 p-0 list-none">
               {role.features.map(f => (
-                <li key={f} className="flex items-center gap-4 py-3 border-b border-[var(--border-light)] text-[var(--body)] group">
+                <li key={f} className="flex items-center gap-4 py-2 border-b border-[var(--border-light)] text-[var(--body)] group">
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors"
                     style={{ backgroundColor: `${role.color}15`, color: role.color }}
@@ -175,9 +175,9 @@ export default function UserTypes() {
 
           {/* Right — dashboard card */}
           <div key={`${active}-card`} className="reveal-delay-2">
-            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8 shadow-lifted">
+            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 shadow-lifted">
               {/* Card header */}
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -197,10 +197,10 @@ export default function UserTypes() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-3 gap-3 mb-6">
                 {role.stats.map(s => (
-                  <div key={s.label} className="bg-[var(--bg-soft)] rounded-2xl p-5 border border-[var(--border-light)] hover:border-[var(--muted)]/20 transition-colors">
-                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-wider mb-2">{s.label}</div>
+                  <div key={s.label} className="bg-[var(--bg-soft)] rounded-xl p-4 border border-[var(--border-light)] hover:border-[var(--muted)]/20 transition-colors">
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-wider mb-1">{s.label}</div>
                     <div className="text-xl font-bold text-[var(--dark)] tracking-tight">{s.val}</div>
                   </div>
                 ))}
@@ -208,18 +208,18 @@ export default function UserTypes() {
 
               {/* Activity */}
               <div>
-                <div className="flex items-center gap-2 mb-6">
+                <div className="flex items-center gap-2 mb-4">
                   <LayoutDashboard className="w-3 h-3 text-[var(--muted)]" />
                   <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest">System Activity</div>
                 </div>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   {[
                     { text: 'Shipment #PCT-2847 updated', time: '2m ago', icon: Zap, color: role.color },
                     { text: 'Payment confirmed via M-Pesa', time: '15m ago', icon: CheckCircle2, color: '#10B981' },
                     { text: 'Security scan completed', time: '1h ago', icon: ShieldCheck, color: '#6366F1' },
                   ].map((a, i) => (
-                    <div key={i} className={`flex items-center gap-4 p-4 rounded-xl transition-colors hover:bg-[var(--bg-soft)] ${i < 2 ? 'border-b border-[var(--border-light)]' : ''}`}>
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${a.color}10`, color: a.color }}>
+                    <div key={i} className={`flex items-center gap-3 p-3 rounded-lg transition-colors hover:bg-[var(--bg-soft)] ${i < 2 ? 'border-b border-[var(--border-light)]' : ''}`}>
+                      <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${a.color}10`, color: a.color }}>
                         <a.icon className="w-4 h-4" />
                       </div>
                       <span className="text-sm text-[var(--body)] font-medium flex-1">{a.text}</span>
