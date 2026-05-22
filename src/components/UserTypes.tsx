@@ -10,7 +10,7 @@ const roles = [
     icon: Briefcase,
     label: 'Business Owners',
     tagline: 'Ship smarter, grow faster',
-    color: 'var(--orange)',
+    color: '#E55934',
     features: [
       'Book pickups in under 60 seconds',
       'Real-time parcel tracking dashboard',

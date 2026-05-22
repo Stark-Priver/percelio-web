@@ -1,8 +1,8 @@
-# Percelio — Smart Logistics Platform for East Africa
+# Percelio - Smart Logistics Platform for East Africa
 
 Percelio is a production-ready, fully responsive SaaS landing page designed for the premier courier and logistics platform in East Africa. It connects business owners, courier agents, and logistics companies through smarter delivery technology, starting with a strong presence in Tanzania.
 
-## 🚀 Features
+## Features
 
 - **Fully Responsive Design:** Optimized for all screen sizes (mobile, tablet, desktop) using a mobile-first approach.
 - **Dark & Light Theme Support:** Seamless theme switching with system preference detection, powered by `next-themes`.
@@ -18,7 +18,7 @@ Percelio is a production-ready, fully responsive SaaS landing page designed for 
     - **Cross-Platform:** App download prompts for iOS, Android, and Web Dashboard.
     - **Supportive FAQ:** Interactive accordion addressing common queries.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -27,7 +27,7 @@ Percelio is a production-ready, fully responsive SaaS landing page designed for 
 - **Theme Management:** [next-themes](https://github.com/pacocoursey/next-themes)
 - **Deployment:** Optimized for [Vercel](https://vercel.com)
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -61,12 +61,12 @@ npm run build
 npm start
 ```
 
-## 🎨 Design Tokens
+## Design Tokens
 
 - **Brand Orange:** `#E55934` (Primary CTA & Accents)
 - **Typography:** Helvetica Neue (System Fallback)
-- **Spacing:** Fluid spacing based on Tailwinds's responsive utilities.
+- **Spacing:** Fluid spacing based on Tailwind's responsive utilities.
 
-## 📄 License
+## License
 
-© 2025 **Percelio Inc.** — All rights reserved.
+(c) 2025 **Percelio Inc.** - All rights reserved.
