@@ -67,72 +67,94 @@ export default function Hero() {
           </div>
 
           {/* Right — phone mockup */}
-          <div className="relative flex justify-center lg:justify-end reveal-delay-2">
+          <div className="relative flex justify-center lg:justify-end reveal-delay-2 min-h-[600px]">
             {/* Soft background circle */}
-            <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[var(--orange-tint)] to-transparent opacity-50 blur-3xl -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[var(--orange-tint)] to-transparent opacity-40 blur-3xl -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-            <div className="float relative z-10">
-              {/* Phone frame */}
-              <div className="phone-frame w-[280px] md:w-[300px] bg-[var(--bg)] border-4 border-[var(--border)] overflow-hidden">
-                {/* Notch */}
-                <div className="h-7 bg-[var(--bg)] flex justify-center items-center border-b border-[var(--border-light)]">
-                  <div className="w-20 h-4 rounded-full bg-[var(--dark)]" />
+            <div className="relative z-10 w-full max-w-[400px]">
+
+              {/* Secondary phone (back) */}
+              <div className="absolute -left-12 top-20 w-[260px] opacity-40 hidden md:block transform -rotate-12 translate-y-10 scale-95 transition-transform duration-700 hover:rotate-0 hover:translate-y-0">
+                <div className="phone-frame bg-[var(--bg)] border-4 border-[var(--border)]">
+                  <div className="h-6 bg-[var(--bg)] flex justify-center items-center">
+                    <div className="w-12 h-2.5 rounded-full bg-[var(--dark)]/20" />
+                  </div>
+                  <div className="p-4 bg-[var(--bg-soft)] h-[400px]">
+                     <div className="space-y-4">
+                        {[1,2,3,4].map(i => (
+                          <div key={i} className="h-12 bg-[var(--bg)] rounded-xl border border-[var(--border)] opacity-50" />
+                        ))}
+                     </div>
+                  </div>
                 </div>
+              </div>
 
-                {/* App content */}
-                <div className="p-4 pb-6 bg-[var(--bg-soft)]">
-                  {/* Header */}
-                  <div className="flex justify-between items-center mb-5">
-                    <div>
-                      <div className="text-[10px] text-[var(--muted)] font-medium">Good morning</div>
-                      <div className="text-sm font-bold text-[var(--dark)] tracking-tight">Amani Business</div>
-                    </div>
-                    <div className="w-9 h-9 rounded-full bg-[var(--orange)] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[var(--orange)]/20">A</div>
+              {/* Primary phone (front) */}
+              <div className="float mx-auto md:mr-0 w-[280px] md:w-[310px] relative z-20">
+                <div className="phone-frame bg-[var(--bg)] border-[6px] border-[var(--dark)] overflow-hidden shadow-2xl">
+                  {/* Notch */}
+                  <div className="h-8 bg-[var(--dark)] flex justify-center items-end pb-1.5">
+                    <div className="w-24 h-4 rounded-full bg-[#111]" />
                   </div>
 
-                  {/* Live tracking card */}
-                  <div className="bg-[var(--bg)] rounded-2xl p-4 mb-4 border border-[var(--border)] shadow-sm">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange)] animate-pulse" />
-                      <span className="text-[10px] font-bold text-[var(--orange)] uppercase tracking-wider">Live Tracking</span>
-                    </div>
-                    <div className="text-[10px] text-[var(--muted)] mb-1">Order #PCT-2847</div>
-                    <div className="text-sm font-bold text-[var(--dark)] tracking-tight mb-3">Dar es Salaam → Arusha</div>
-                    <div className="h-1.5 rounded-full bg-[var(--border-light)] overflow-hidden mb-2">
-                      <div className="h-full w-2/3 rounded-full bg-[var(--orange)]" />
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-[10px] text-[var(--muted)]">67% complete</span>
-                      <span className="text-[10px] text-[var(--orange)] font-bold">Est. 4:30 PM</span>
-                    </div>
-                  </div>
-
-                  {/* Stats grid */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {[
-                      { label: 'Active', val: '12',  color: 'text-[var(--orange)]' },
-                      { label: 'Delivered', val: '348', color: 'text-green-500' },
-                    ].map(s => (
-                      <div key={s.label} className="bg-[var(--bg)] border border-[var(--border)] rounded-xl p-3">
-                        <div className="text-[9px] text-[var(--muted)] font-bold uppercase tracking-wider mb-1">{s.label}</div>
-                        <div className={`text-lg font-bold ${s.color} tracking-tight`}>{s.val}</div>
+                  {/* App content */}
+                  <div className="p-5 pb-8 bg-[var(--bg-soft)]">
+                    {/* Header */}
+                    <div className="flex justify-between items-center mb-6">
+                      <div>
+                        <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest">Welcome back</div>
+                        <div className="text-sm font-black text-[var(--dark)] tracking-tight mt-0.5">Amani Business</div>
                       </div>
-                    ))}
-                  </div>
+                      <div className="w-10 h-10 rounded-full bg-[var(--orange)] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-[var(--orange)]/30">A</div>
+                    </div>
 
-                  {/* Map preview with icons */}
-                  <div className="rounded-xl overflow-hidden h-28 bg-[var(--bg)] relative border border-[var(--border)]">
-                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,var(--orange)_0%,transparent_50%)]" />
-                    <div className="absolute top-4 left-6">
-                       <MapPin className="w-4 h-4 text-[var(--orange)]" />
+                    {/* Live tracking card */}
+                    <div className="bg-[var(--bg)] rounded-2xl p-5 mb-5 border border-[var(--border)] shadow-sm">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="w-2 h-2 rounded-full bg-[var(--orange)] animate-pulse" />
+                        <span className="text-[10px] font-bold text-[var(--orange)] uppercase tracking-widest">In Transit</span>
+                      </div>
+                      <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest mb-1">Parcel #PCT-2847</div>
+                      <div className="text-base font-bold text-[var(--dark)] tracking-tight mb-4">Dar es Salaam → Arusha</div>
+
+                      <div className="relative pt-1 mb-4">
+                        <div className="overflow-hidden h-2 text-xs flex rounded-full bg-[var(--border-light)]">
+                          <div className="w-[70%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-[var(--orange)]"></div>
+                        </div>
+                        <div className="flex justify-between mt-2">
+                           <span className="text-[9px] font-bold text-[var(--muted)] uppercase">70% Journey</span>
+                           <span className="text-[9px] font-bold text-[var(--orange)] uppercase">4h Left</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="absolute bottom-4 right-6">
-                       <CheckCircle2 className="w-4 h-4 text-green-500" />
+
+                    {/* Stats grid */}
+                    <div className="grid grid-cols-2 gap-4 mb-5">
+                      {[
+                        { label: 'Active', val: '12',  color: 'text-[var(--orange)]' },
+                        { label: 'Delivered', val: '348', color: 'text-green-500' },
+                      ].map(s => (
+                        <div key={s.label} className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-4 shadow-sm">
+                          <div className="text-[9px] text-[var(--muted)] font-bold uppercase tracking-widest mb-1">{s.label}</div>
+                          <div className={`text-xl font-black ${s.color} tracking-tight`}>{s.val}</div>
+                        </div>
+                      ))}
                     </div>
-                    <svg className="absolute inset-0 w-full h-full p-4" viewBox="0 0 200 100">
-                      <path d="M20,20 C60,20 100,80 180,80" fill="none" stroke="var(--orange)" strokeWidth="2" strokeDasharray="4 4" />
-                    </svg>
-                    <div className="absolute bottom-2 left-3 text-[8px] font-bold text-[var(--muted)] uppercase tracking-widest">Route Overview</div>
+
+                    {/* Map preview */}
+                    <div className="rounded-2xl overflow-hidden h-32 bg-[var(--bg)] relative border border-[var(--border)] shadow-inner">
+                      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_30%,var(--orange)_0%,transparent_60%)]" />
+                      <div className="absolute top-4 left-6 scale-110">
+                         <MapPin className="w-5 h-5 text-[var(--orange)]" />
+                      </div>
+                      <div className="absolute bottom-4 right-6 scale-110">
+                         <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      </div>
+                      <svg className="absolute inset-0 w-full h-full p-4" viewBox="0 0 200 100">
+                        <path d="M30,30 C70,30 110,70 170,70" fill="none" stroke="var(--orange)" strokeWidth="3" strokeDasharray="6 4" strokeLinecap="round" />
+                      </svg>
+                      <div className="absolute bottom-3 left-4 text-[9px] font-bold text-[var(--muted)] uppercase tracking-widest bg-[var(--bg)]/80 backdrop-blur-sm px-2 py-0.5 rounded">Real-time Route</div>
+                    </div>
                   </div>
                 </div>
               </div>
