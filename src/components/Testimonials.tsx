@@ -1,3 +1,7 @@
+'use client';
+
+import { Star, Quote } from 'lucide-react';
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -27,66 +31,50 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="section-pad" style={{ background: '#2B2B2B', position: 'relative', overflow: 'hidden' }}>
+    <section className="section-pad bg-[var(--bg-dark)] relative overflow-hidden">
       {/* Subtle texture */}
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(229,89,52,0.06) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(229,89,52,0.04) 0%, transparent 50%)', pointerEvents: 'none' }} />
+      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_20%_50%,var(--orange)_0%,transparent_60%),radial-gradient(circle_at_80%_20%,var(--orange)_0%,transparent_50%)]" />
 
-      <div className="max-content container-px" style={{ position: 'relative' }}>
+      <div className="max-content container-px relative z-10">
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 60 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--orange)', marginBottom: 14 }}>Real Stories</div>
-          <h2 style={{ color: '#fff', marginBottom: 16 }}>
+        <div className="text-center mb-16 reveal">
+          <div className="overline mb-4">Real Stories</div>
+          <h2 className="text-white mb-6">
             Trusted Across{' '}
-            <span style={{ color: 'var(--orange)' }}>East Africa</span>
+            <span className="text-[var(--orange)]">East Africa</span>
           </h2>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.55)', maxWidth: 460, margin: '0 auto', lineHeight: 1.65 }}>
+          <p className="text-lg text-white/50 max-w-xl mx-auto leading-relaxed">
             From small traders to large logistics fleets — Percelio delivers results that matter.
           </p>
         </div>
 
         {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 56 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {testimonials.map((t, i) => (
-            <div key={i} style={{
-              background: 'var(--orange-tint)', /* #FDEAE0 — peach tint matching design */
-              borderRadius: 20,
-              padding: 28,
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              {/* Quote mark */}
-              <div style={{ fontSize: 64, lineHeight: 0.8, color: 'var(--orange)', opacity: 0.15, fontFamily: 'Georgia, serif', marginBottom: 16, userSelect: 'none' }}>&ldquo;</div>
+            <div key={i} className="bg-[var(--orange-tint)] rounded-[2rem] p-10 flex flex-col relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+              <Quote className="absolute top-8 right-8 w-12 h-12 text-[var(--orange)] opacity-10 group-hover:opacity-20 transition-opacity" />
 
               {/* Stars */}
-              <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>
+              <div className="flex gap-1 mb-8">
                 {Array(t.stars).fill(0).map((_, j) => (
-                  <svg key={j} width="15" height="15" viewBox="0 0 15 15" fill="var(--orange)">
-                    <path d="M7.5 1.2l1.67 3.38 3.73.54-2.7 2.63.64 3.72L7.5 9.8l-3.34 1.69.64-3.72-2.7-2.63 3.73-.54L7.5 1.2z"/>
-                  </svg>
+                  <Star key={j} className="w-4 h-4 fill-[var(--orange)] text-[var(--orange)]" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p style={{ fontSize: 14, color: '#2B2B2B', lineHeight: 1.72, marginBottom: 24, flex: 1 }}>
+              <p className="text-lg text-[var(--bg-dark)] font-medium leading-relaxed mb-10 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Author */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, paddingTop: 20, borderTop: '1px solid rgba(229,89,52,0.15)' }}>
-                <div style={{
-                  width: 40, height: 40, borderRadius: '50%',
-                  background: 'var(--orange)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: 13, fontWeight: 700, flexShrink: 0,
-                }}>
+              <div className="flex items-center gap-4 pt-8 border-t border-[var(--orange)]/10">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--orange)] text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-[var(--orange)]/20">
                   {t.initials}
                 </div>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: '#1A1A1A', letterSpacing: '-0.01em' }}>{t.name}</div>
-                  <div style={{ fontSize: 12, color: '#6B6B6B', marginTop: 1 }}>{t.title} · {t.company}</div>
+                  <div className="text-sm font-bold text-[var(--bg-dark)]">{t.name}</div>
+                  <div className="text-xs text-[var(--bg-dark)]/60 font-medium mt-0.5">{t.title} · {t.company}</div>
                 </div>
               </div>
             </div>
@@ -94,16 +82,7 @@ export default function Testimonials() {
         </div>
 
         {/* Social proof bar */}
-        <div style={{
-          background: 'rgba(255,255,255,0.06)',
-          border: '1px solid rgba(255,255,255,0.1)',
-          borderRadius: 16,
-          padding: '28px 40px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 24,
-          textAlign: 'center',
-        }}>
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-10 md:p-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center backdrop-blur-sm">
           {[
             { val: '3,000+', label: 'Active users' },
             { val: '98%',    label: 'Satisfaction rate' },
@@ -111,17 +90,12 @@ export default function Testimonials() {
             { val: '4.8 ★',  label: 'App store rating' },
           ].map(s => (
             <div key={s.label}>
-              <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', letterSpacing: '-0.025em', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', fontWeight: 500 }}>{s.label}</div>
+              <div className="text-3xl font-black text-white tracking-tighter mb-2">{s.val}</div>
+              <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{s.label}</div>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`@media(max-width:860px){
-        .testimonial-grid{grid-template-columns:1fr!important;}
-        .social-proof-grid{grid-template-columns:1fr 1fr!important;}
-      }`}</style>
     </section>
   );
 }
