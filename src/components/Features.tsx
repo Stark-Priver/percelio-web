@@ -67,7 +67,7 @@ export default function Features() {
               </div>
               <h4 className="text-xl font-bold mb-3 text-[var(--dark)]">{f.title}</h4>
               <p className="text-[var(--body)] text-sm leading-relaxed mb-6">{f.desc}</p>
-              <div className="inline-flex items-center gap-2 bg-[var(--orange-light)] rounded-full px-3 py-1 border border-[var(--orange)]/5">
+              <div className="inline-flex items-center gap-2 bg-[var(--orange-light)] rounded-full px-3 py-1">
                 <span className="w-1 h-1 rounded-full bg-[var(--orange)]" />
                 <span className="text-[10px] font-bold text-[var(--orange)] uppercase tracking-wider">{f.stat}</span>
               </div>

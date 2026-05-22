@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { Menu, X, ArrowRight, Box } from 'lucide-react';
 
 const NAV_LINKS = [
+  { label: 'Home',          href: '/' },
   { label: 'Features',      href: '/features' },
   { label: 'How it Works',  href: '/how-it-works' },
   { label: 'About',         href: '/about' },
@@ -15,6 +17,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 12);
@@ -44,15 +47,22 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map(l => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="text-sm font-medium text-[var(--body)] px-4 py-2 rounded-lg transition-colors hover:text-[var(--dark)] hover:bg-[var(--bg-soft)] no-underline"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(l => {
+            const isActive = pathname === l.href;
+            return (
+              <Link
+                key={l.label}
+                href={l.href}
+                className={`text-sm font-medium px-4 py-2 rounded-lg transition-all no-underline ${
+                  isActive
+                    ? 'text-[var(--orange)] bg-[var(--orange-light)]'
+                    : 'text-[var(--body)] hover:text-[var(--dark)] hover:bg-[var(--bg-soft)]'
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA group */}
@@ -85,16 +95,21 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-[var(--bg)] border-t border-[var(--border)] px-6 py-8 absolute top-full left-0 right-0 shadow-xl reveal">
           <div className="flex flex-col gap-2">
-            {NAV_LINKS.map(l => (
-              <Link
-                key={l.label}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-lg font-medium text-[var(--body)] py-4 border-b border-[var(--border-light)] no-underline hover:text-[var(--orange)] transition-colors"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(l => {
+              const isActive = pathname === l.href;
+              return (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-lg font-medium py-4 border-b border-[var(--border-light)] no-underline transition-colors ${
+                    isActive ? 'text-[var(--orange)]' : 'text-[var(--body)] hover:text-[var(--orange)]'
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </div>
           <div className="mt-8 flex flex-col gap-4">
             <Link href="/login" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</Link>

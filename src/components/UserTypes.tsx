@@ -76,41 +76,60 @@ export default function UserTypes() {
   const role = roles.find(r => r.id === active)!;
 
   return (
-    <section id="roles" className="section-pad bg-[var(--bg-soft)]">
+    <section id="roles" className="section-pad bg-[var(--bg-soft)] overflow-hidden">
       <div className="max-content container-px">
 
         {/* Header */}
         <div className="text-center mb-12 reveal">
-          <div className="overline mb-4">Built For Everyone</div>
+          <div className="overline mb-4">End-to-End Delivery Flow</div>
           <h2 className="mb-4">
             One Platform,{' '}
             <span className="text-[var(--orange)]">Four Perspectives</span>
           </h2>
           <p className="text-lg text-[var(--body)] max-w-xl mx-auto leading-relaxed">
-            Whether shipping, delivering, managing fleets, or receiving — Percelio adapts to your role.
+            From the initial booking to the final doorstep delivery — Percelio manages the entire lifecycle for everyone involved.
           </p>
         </div>
 
-        {/* Role tabs */}
-        <div className="flex justify-center gap-2 mb-12 flex-wrap reveal-delay-1">
-          {roles.map(r => (
-            <button
-              key={r.id}
-              onClick={() => setActive(r.id)}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-semibold transition-all duration-300 border-2 ${
-                active === r.id
-                  ? 'text-white border-transparent'
-                  : 'bg-[var(--bg)] text-[var(--body)] border-[var(--border)] hover:border-[var(--muted)]'
-              }`}
-              style={{
-                backgroundColor: active === r.id ? r.color : undefined,
-                boxShadow: active === r.id ? `0 8px 24px ${r.color}40` : undefined
-              }}
-            >
-              <r.icon className="w-4 h-4" />
-              {r.label}
-            </button>
-          ))}
+        {/* Role tabs (Stages) */}
+        <div className="relative mb-16 reveal-delay-1">
+          {/* Connector Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[var(--border)] -translate-y-1/2 hidden lg:block z-0" />
+
+          <div className="flex justify-between gap-4 flex-wrap relative z-10">
+            {roles.map((r, idx) => (
+              <div key={r.id} className="flex flex-col items-center">
+                <button
+                  onClick={() => setActive(r.id)}
+                  className={`flex flex-col items-center gap-3 p-4 rounded-2xl transition-all duration-500 border-2 group ${
+                    active === r.id
+                      ? 'bg-[var(--bg)] border-[var(--orange)] shadow-xl scale-110'
+                      : 'bg-[var(--bg-soft)] border-transparent hover:border-[var(--muted)]/20'
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-500 ${
+                      active === r.id ? 'text-white' : 'bg-[var(--bg)] text-[var(--muted)]'
+                    }`}
+                    style={{ backgroundColor: active === r.id ? r.color : undefined }}
+                  >
+                    <r.icon className="w-6 h-6" />
+                  </div>
+                  <span className={`text-xs font-bold uppercase tracking-widest ${
+                    active === r.id ? 'text-[var(--dark)]' : 'text-[var(--muted)] group-hover:text-[var(--body)]'
+                  }`}>
+                    {r.label}
+                  </span>
+                </button>
+                {/* Stage numbering */}
+                <div className={`mt-4 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border-2 transition-colors duration-500 ${
+                  active === r.id ? 'bg-[var(--orange)] border-[var(--orange)] text-white' : 'bg-[var(--bg)] border-[var(--border)] text-[var(--muted)]'
+                }`}>
+                  {idx + 1}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Content */}
