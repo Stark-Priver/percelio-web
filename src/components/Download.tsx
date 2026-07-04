@@ -66,8 +66,8 @@ export default function Download() {
               <Globe className="w-4 h-4 text-[var(--orange)]" />
               <span>
                 Or access the web dashboard at{' '}
-                <a href="https://app.pacelio.com" className="text-[var(--orange)] font-bold no-underline hover:underline">
-                  app.pacelio.com
+                <a href="https://app.pacelio.incpritech.com" className="text-[var(--orange)] font-bold no-underline hover:underline">
+                  app.pacelio.incpritech.com
                 </a>
               </span>
             </div>

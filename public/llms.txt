@@ -12,6 +12,9 @@ Pacelio is a courier and logistics platform built by IncriprTech, headquartered 
 - In-app chat — direct communication between senders and couriers
 - Cash on Delivery (COD) — end-to-end COD management with automated reconciliation
 
+## Web App
+- App Dashboard (Flutter): https://app.pacelio.incpritech.com
+
 ## Pages
 - Home: https://pacelio.incpritech.com/
 - About: https://pacelio.incpritech.com/about
@@ -42,6 +45,9 @@ Pacelio is a courier and logistics platform built by IncriprTech, headquartered 
 - Privacy Policy: https://pacelio.incpritech.com/privacy
 - Terms of Service: https://pacelio.incpritech.com/terms
 - Cookies Policy: https://pacelio.incpritech.com/cookies
+
+## External Resources
+- Web Application: https://app.pacelio.incpritech.com
 
 ## Company
 - Name: IncriprTech

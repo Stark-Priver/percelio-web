@@ -30,11 +30,24 @@ const pages = [
   '/solutions/users',
 ];
 
+const externalPages = [
+  'https://app.pacelio.incpritech.com',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map(path => ({
+  const internal = pages.map(path => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === '' ? 'weekly' as const : 'monthly' as const,
     priority: path === '' ? 1.0 : path.startsWith('/blog') || path === '/features' || path === '/solutions/businesses' ? 0.8 : 0.6,
   }));
+
+  const external = externalPages.map(url => ({
+    url,
+    lastModified: new Date(),
+    changeFrequency: 'daily' as const,
+    priority: 0.9,
+  }));
+
+  return [...internal, ...external];
 }

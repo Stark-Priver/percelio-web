@@ -70,8 +70,8 @@ export default function DownloadPage() {
                 <h3 className="text-xl font-bold text-[var(--foreground)]">Web Dashboard</h3>
               </div>
               <p className="text-sm text-[var(--muted)] mb-8">Any browser, any device</p>
-              <a href="https://app.pacelio.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[var(--orange)] no-underline group">
-                Access at app.pacelio.com <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <a href="https://app.pacelio.incpritech.com" className="inline-flex items-center gap-2 text-sm font-bold text-[var(--orange)] no-underline group">
+                Access at app.pacelio.incpritech.com <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function DownloadPage() {
               <p className="text-[var(--muted)] mb-8 max-w-lg mx-auto">
                 Access the full Pacelio dashboard from any browser. Manage shipments, track deliveries, and view analytics — no download required.
               </p>
-              <a href="https://app.pacelio.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg inline-flex">
+              <a href="https://app.pacelio.incpritech.com" className="btn btn-primary btn-lg inline-flex">
                 Open Web Dashboard <ArrowRight className="w-5 h-5" />
               </a>
             </div>

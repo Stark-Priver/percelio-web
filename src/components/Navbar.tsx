@@ -67,9 +67,9 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <div className="h-4 w-px bg-[var(--border)] mx-1" />
-          <Link href="/download" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
+          <a href="https://app.pacelio.incpritech.com" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
             Sign in
-          </Link>
+          </a>
           <Link href="/download" className="btn btn-primary btn-sm">
             Get Started
             <ArrowRight className="w-4 h-4" />
@@ -110,7 +110,7 @@ export default function Navbar() {
             })}
           </div>
           <div className="mt-8 flex flex-col gap-4">
-            <Link href="/download" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</Link>
+            <a href="https://app.pacelio.incpritech.com" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</a>
             <Link href="/download" onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center">Get Started</Link>
           </div>
         </div>
