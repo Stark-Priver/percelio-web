@@ -1,6 +1,7 @@
 'use client';
 
-import { Globe, Smartphone, Bell, Wallet } from 'lucide-react';
+import Link from 'next/link';
+import { Globe, Smartphone, Bell, Wallet, TrendingUp } from 'lucide-react';
 
 const AppleIcon = () => (
   <svg viewBox="0 0 384 512" className="w-6 h-6 group-hover:text-[var(--orange)] transition-colors fill-current">
@@ -33,48 +34,51 @@ export default function Download() {
             </h2>
 
             <p className="text-lg text-[var(--body)] leading-relaxed mb-10 max-w-md">
-              Download the Percelio app and manage every delivery — from booking to proof of delivery — right from your phone. Available in Swahili and English.
+              Download the Pacelio app and manage every delivery — from booking to proof of delivery — right from your phone. Available in Swahili and English.
             </p>
 
             {/* Store buttons */}
-            <div className="flex flex-wrap gap-4 mb-10">
-              {[
-                {
-                  store: 'App Store',
-                  sub: 'Download on the',
-                  href: 'https://apps.apple.com',
-                  icon: AppleIcon,
-                },
-                {
-                  store: 'Google Play',
-                  sub: 'Get it on',
-                  href: 'https://play.google.com',
-                  icon: PlayStoreIcon,
-                },
-              ].map(s => (
-                <a
-                  key={s.store}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-[var(--dark)] text-white px-6 py-3 rounded-2xl hover:scale-[1.02] transition-all no-underline group border border-transparent"
-                >
-                  <s.icon />
+            <div className="flex flex-wrap gap-4 mb-6">
+              <div className="relative">
+                <div className="flex items-center gap-3 bg-[var(--bg)] border-2 border-[var(--border)] text-[var(--muted)] px-6 py-3.5 rounded-2xl opacity-60 cursor-not-allowed">
+                  <AppleIcon />
                   <div className="text-left">
-                    <div className="text-[10px] text-white/50 font-bold uppercase tracking-widest leading-none mb-1">{s.sub}</div>
-                    <div className="text-base font-bold leading-none">{s.store}</div>
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest leading-none mb-0.5">Download on the</div>
+                    <div className="text-base font-bold leading-none">App Store</div>
                   </div>
-                </a>
-              ))}
+                </div>
+                <span className="absolute -top-2 -right-2 bg-[var(--orange)] text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">Coming Soon</span>
+              </div>
+
+              <div className="relative">
+                <div className="flex items-center gap-3 bg-[var(--bg)] border-2 border-[var(--border)] text-[var(--muted)] px-6 py-3.5 rounded-2xl opacity-60 cursor-not-allowed">
+                  <PlayStoreIcon />
+                  <div className="text-left">
+                    <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest leading-none mb-0.5">Get it on</div>
+                    <div className="text-base font-bold leading-none">Google Play</div>
+                  </div>
+                </div>
+                <span className="absolute -top-2 -right-2 bg-[var(--orange)] text-white text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">Coming Soon</span>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-[var(--muted)] font-medium">
+            <div className="flex items-center gap-3 text-sm text-[var(--muted)] font-medium mb-6">
               <Globe className="w-4 h-4 text-[var(--orange)]" />
               <span>
                 Or access the web dashboard at{' '}
-                <a href="https://app.percelio.com" className="text-[var(--orange)] font-bold no-underline hover:underline">
-                  app.percelio.com
+                <a href="https://app.pacelio.com" className="text-[var(--orange)] font-bold no-underline hover:underline">
+                  app.pacelio.com
                 </a>
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-[var(--muted)] pt-4 border-t border-[var(--border)]">
+              <TrendingUp className="w-4 h-4 text-[var(--orange)]" />
+              <span>
+                Built by <strong className="text-[var(--foreground)]">IncriprTech</strong> —{' '}
+                <Link href="/investors" className="text-[var(--orange)] font-bold no-underline hover:underline">
+                  View investment opportunity
+                </Link>
               </span>
             </div>
           </div>

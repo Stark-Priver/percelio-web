@@ -1,0 +1,52 @@
+# Pacelio — East Africa's Courier & Logistics Platform
+> Connect businesses, courier agents, and logistics companies across East Africa. Real-time tracking, multi-carrier rate comparison, instant booking, and seamless delivery management.
+
+## About
+Pacelio is a courier and logistics platform built by IncriprTech, headquartered in Mbeya, Tanzania. It serves as a multi-carrier marketplace connecting businesses, individual users, courier agents, and logistics companies across East Africa.
+
+## Key Features
+- Multi-carrier rate comparison — compare prices from multiple couriers in real time
+- Live tracking — GPS-based real-time parcel tracking
+- QR handoffs — secure QR code-based proof of delivery
+- Route optimization — AI-powered delivery route planning
+- In-app chat — direct communication between senders and couriers
+- Cash on Delivery (COD) — end-to-end COD management with automated reconciliation
+
+## Pages
+- Home: https://pacelio.incpritech.com/
+- About: https://pacelio.incpritech.com/about
+- API Docs: https://pacelio.incpritech.com/api-docs
+- Blog: https://pacelio.incpritech.com/blog
+- Careers: https://pacelio.incpritech.com/careers
+- Changelog: https://pacelio.incpritech.com/changelog
+- Contact: https://pacelio.incpritech.com/contact
+- Download: https://pacelio.incpritech.com/download
+- Features: https://pacelio.incpritech.com/features
+- How It Works: https://pacelio.incpritech.com/how-it-works
+- Investors: https://pacelio.incpritech.com/investors
+- Partnerships: https://pacelio.incpritech.com/partnerships
+- Press: https://pacelio.incpritech.com/press
+- Support: https://pacelio.incpritech.com/support
+- For Businesses: https://pacelio.incpritech.com/solutions/businesses
+- For Couriers: https://pacelio.incpritech.com/solutions/couriers
+- For Enterprise: https://pacelio.incpritech.com/solutions/enterprise
+- For Logistics: https://pacelio.incpritech.com/solutions/logistics
+- For Users: https://pacelio.incpritech.com/solutions/users
+
+## Blog Posts
+- AI in Last-Mile Delivery: https://pacelio.incpritech.com/blog/ai-last-mile-delivery
+- East Africa Logistics Boom: https://pacelio.incpritech.com/blog/east-africa-logistics-boom
+- Pacelio Launch in Mbeya: https://pacelio.incpritech.com/blog/pacelio-launch-mbeya
+
+## Legal
+- Privacy Policy: https://pacelio.incpritech.com/privacy
+- Terms of Service: https://pacelio.incpritech.com/terms
+- Cookies Policy: https://pacelio.incpritech.com/cookies
+
+## Company
+- Name: IncriprTech
+- HQ: Mbeya, Tanzania
+- Email: pacelio@incpritech.com
+- Phone: +255 792 017 591
+- Product: Pacelio
+- Domain: pacelio.incpritech.com

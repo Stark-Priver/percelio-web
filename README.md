@@ -1,22 +1,23 @@
-# Percelio - Smart Logistics Platform for East Africa
+# Pacelio — East Africa's Courier & Logistics Platform
 
-Percelio is a production-ready, fully responsive SaaS landing page designed for the premier courier and logistics platform in East Africa. It connects business owners, courier agents, and logistics companies through smarter delivery technology, starting with a strong presence in Tanzania.
+Official marketing website for **Pacelio**, the multi-carrier logistics marketplace connecting Super Admins, Business Owners, Logistics Companies, Courier Agents, and End Users across East Africa. Headquartered in **Mbeya, Tanzania**.
 
-## Features
+Built with Next.js 14, TypeScript, and Tailwind CSS.
 
-- **Fully Responsive Design:** Optimized for all screen sizes (mobile, tablet, desktop) using a mobile-first approach.
-- **Dark & Light Theme Support:** Seamless theme switching with system preference detection, powered by `next-themes`.
-- **Lucide Icons:** Unified, professional iconography replacing all emojis and custom SVGs for a modern aesthetic.
-- **Tailwind CSS Power:** Built with Tailwind CSS for rapid styling, consistent design tokens, and high performance.
-- **Production Ready:** Clean code architecture, type-safe with TypeScript, and optimized for deployment.
-- **Comprehensive Sections:**
-    - **Interactive Hero:** Captivating first impression with live-tracking mockups.
-    - **Multi-Role Perspectives:** Tailored features for Businesses, Couriers, Logistics Fleets, and End Users.
-    - **Capabilities Grid:** Highlighting the technical edge of the platform.
-    - **Process Flow:** Clear, step-by-step onboarding guide.
-    - **Social Proof:** Real-world testimonials and key platform metrics.
-    - **Cross-Platform:** App download prompts for iOS, Android, and Web Dashboard.
-    - **Supportive FAQ:** Interactive accordion addressing common queries.
+## Platform Features
+
+- **Multi-Carrier Rate Comparison** — Compare prices, ratings, and delivery times across logistics providers
+- **Live GPS Tracking** — Real-time courier location on OpenStreetMap via Supabase Realtime
+- **QR-Based Parcel Handoff** — Secure 3-step chain: Pickup → Hub → Delivery with QR scanning
+- **In-App Chat & Messaging** — Real-time communication between all stakeholders
+- **Cash on Delivery (COD)** — Full lifecycle with payment confirmation and return-to-sender flow
+- **Fleet Management** — Vehicle tracking, driver scheduling, maintenance alerts
+- **Automated SMS Notifications** — Order status alerts via Meseji, bulk SMS for admins
+- **Dispute Management** — Open/review/resolved/dismissed lifecycle
+- **Commission Splitting** — Configurable platform/carrier/agent splits
+- **Audit Logging** — Every action logged with actor details
+- **Pricing Engine** — Carrier-defined rate cards with Haversine distance calculation
+- **Cross-Platform App** — Flutter (Android, iOS, Web, Windows, Linux, macOS)
 
 ## Tech Stack
 
@@ -26,6 +27,17 @@ Percelio is a production-ready, fully responsive SaaS landing page designed for 
 - **Icons:** [Lucide React](https://lucide.dev/)
 - **Theme Management:** [next-themes](https://github.com/pacocoursey/next-themes)
 - **Deployment:** Optimized for [Vercel](https://vercel.com)
+
+## Sections
+
+- **Hero** — Live tracking mockup with platform stats
+- **User Types** — Role-based feature breakdown (Business, Courier, Logistics, End User)
+- **Features** — 18 detailed capability cards covering every platform feature
+- **How It Works** — 4-step onboarding process with KPIs
+- **Testimonials** — Real user stories and social proof
+- **Download** — App store links and web dashboard access
+- **FAQ** — Interactive accordion addressing common questions
+- **Contact** — Contact form and business details
 
 ## Getting Started
 
@@ -37,13 +49,8 @@ Percelio is a production-ready, fully responsive SaaS landing page designed for 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-repo/percelio-web.git
-
-# Navigate to the project
-cd percelio-web
-
-# Install dependencies
+git clone https://github.com/your-repo/pacelio-web.git
+cd pacelio-web
 npm install
 ```
 
@@ -51,7 +58,7 @@ npm install
 
 ```bash
 npm run dev
-# Open http://localhost:3000 in your browser
+# Open http://localhost:3000
 ```
 
 ### Production Build
@@ -61,12 +68,13 @@ npm run build
 npm start
 ```
 
-## Design Tokens
+## Contact
 
-- **Brand Orange:** `#E55934` (Primary CTA & Accents)
-- **Typography:** Helvetica Neue (System Fallback)
-- **Spacing:** Fluid spacing based on Tailwind's responsive utilities.
+- **Email:** pacelio@incpritech.com
+- **Phone:** +255 792 017 591
+- **HQ:** Mbeya, Tanzania
+- **Web:** https://pacelio.com
 
 ## License
 
-(c) 2025 **Percelio Inc.** - All rights reserved.
+(c) 2026 **Pacelio** — Mbeya University of Science and Technology. All rights reserved.

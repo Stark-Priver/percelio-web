@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="pt-[68px]">
+      <main className="pt-20">
         <Hero />
         <UserTypes />
         <Features />

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Globe, Phone, MapPin, Twitter, Linkedin, Instagram, Box, ArrowUpRight } from 'lucide-react';
+import { Mail, Globe, Phone, MapPin, Twitter, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 
 const footerLinks = [
   {
@@ -32,6 +32,7 @@ const footerLinks = [
       { label: 'Blog', href: '/blog' },
       { label: 'Careers', href: '/careers' },
       { label: 'Press Kit', href: '/press' },
+      { label: 'Investors', href: '/investors' },
       { label: 'Contact', href: '/contact' },
       { label: 'Support', href: '/support' },
     ],
@@ -39,9 +40,9 @@ const footerLinks = [
 ];
 
 const socials = [
-  { label: 'X (Twitter)', href: 'https://x.com/percelio', icon: Twitter },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/percelio', icon: Linkedin },
-  { label: 'Instagram', href: 'https://instagram.com/percelio', icon: Instagram },
+  { label: 'X (Twitter)', href: 'https://x.com/pacelio', icon: Twitter },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/pacelio', icon: Linkedin },
+  { label: 'Instagram', href: 'https://instagram.com/pacelio', icon: Instagram },
 ];
 
 export default function Footer() {
@@ -57,10 +58,8 @@ export default function Footer() {
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 rounded-xl bg-[var(--orange)] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[var(--orange)]/20">
-                <Box className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white tracking-tight">Percelio</span>
+              <img src="/logo.png" alt="Pacelio" className="w-9 h-9 object-contain flex-shrink-0" />
+              <span className="text-xl font-bold text-white tracking-tight">Pacelio</span>
             </div>
 
             <p className="text-sm leading-relaxed text-[var(--muted)] max-w-sm mb-8">
@@ -70,9 +69,9 @@ export default function Footer() {
             {/* Contact */}
             <div className="flex flex-col gap-4 mb-8">
               {[
-                { icon: Mail, label: 'hello@percelio.com', href: 'mailto:hello@percelio.com' },
-                { icon: Phone, label: '+255 700 000 000', href: 'tel:+255700000000' },
-                { icon: MapPin, label: 'Percelio HQ, Dar es Salaam', href: '/contact' },
+                { icon: Mail, label: 'pacelio@incpritech.com', href: 'mailto:pacelio@incpritech.com' },
+                { icon: Phone, label: '+255 792 017 591', href: 'tel:+255792017591' },
+                { icon: MapPin, label: 'Pacelio HQ, Mbeya, Tanzania', href: '/contact' },
               ].map(c => (
                 <Link
                   key={c.label}
@@ -141,7 +140,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-xs text-[var(--muted)]/60">
-            © {year} <span className="text-[var(--muted)] font-semibold">Percelio Inc.</span> All rights reserved. Registered in Tanzania.
+            © {year} <span className="text-[var(--muted)] font-semibold">Pacelio Inc.</span> All rights reserved. Registered in Tanzania.
           </p>
 
           <div className="flex gap-8">

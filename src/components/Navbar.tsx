@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
-import { Menu, X, ArrowRight, Box } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Home',          href: '/' },
@@ -37,11 +37,9 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-9 h-9 rounded-xl bg-[var(--orange)] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[var(--orange)]/20">
-            <Box className="w-5 h-5 text-white" />
-          </div>
+          <img src="/logo.png" alt="Pacelio" className="w-9 h-9 object-contain flex-shrink-0" />
           <span className="text-xl font-bold text-[var(--dark)] tracking-tight">
-            Percelio
+            Pacelio
           </span>
         </Link>
 
@@ -69,7 +67,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <div className="h-4 w-px bg-[var(--border)] mx-1" />
-          <Link href="/login" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
+          <Link href="/download" className="text-sm font-medium text-[var(--body)] px-4 py-2 hover:text-[var(--dark)] transition-colors no-underline">
             Sign in
           </Link>
           <Link href="/download" className="btn btn-primary btn-sm">
@@ -112,7 +110,7 @@ export default function Navbar() {
             })}
           </div>
           <div className="mt-8 flex flex-col gap-4">
-            <Link href="/login" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</Link>
+            <Link href="/download" onClick={() => setOpen(false)} className="btn btn-ghost w-full justify-center">Sign in</Link>
             <Link href="/download" onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center">Get Started</Link>
           </div>
         </div>

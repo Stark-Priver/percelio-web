@@ -19,10 +19,10 @@ export default function TermsPage() {
             <p className="text-lg text-[var(--muted)] mb-8">Last Updated: January 2024</p>
 
             <h3 className="text-xl font-bold text-[var(--foreground)] mt-8 mb-4">1. Acceptance of Terms</h3>
-            <p className="text-[var(--muted)] mb-6">By accessing or using the Percelio platform, you agree to be bound by these Terms of Service.</p>
+            <p className="text-[var(--muted)] mb-6">By accessing or using the Pacelio platform, you agree to be bound by these Terms of Service.</p>
 
             <h3 className="text-xl font-bold text-[var(--foreground)] mt-8 mb-4">2. Service Description</h3>
-            <p className="text-[var(--muted)] mb-6">Percelio provides a technology platform that connects users with courier and logistics services.</p>
+            <p className="text-[var(--muted)] mb-6">Pacelio provides a technology platform that connects users with courier and logistics services.</p>
 
             <h3 className="text-xl font-bold text-[var(--foreground)] mt-8 mb-4">3. User Responsibilities</h3>
             <p className="text-[var(--muted)] mb-6">Users are responsible for providing accurate information and complying with all applicable laws while using our services.</p>

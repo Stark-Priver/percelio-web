@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Download, Play, CheckCircle2, MapPin, Package, Clock, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Download, Play, CheckCircle2, MapPin, Package, Clock, ShieldCheck, TrendingUp } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -11,11 +11,7 @@ export default function Hero() {
 
           {/* Left — copy */}
           <div className="reveal">
-            {/* Overline badge */}
-            <div className="inline-flex items-center gap-2 bg-[var(--orange-light)] rounded-full px-4 py-1.5 mb-8 border border-[var(--orange)]/10">
-              <span className="w-2 h-2 rounded-full bg-[var(--orange)] pulse-dot" />
-              <span className="text-xs font-bold text-[var(--orange)] uppercase tracking-wider">Now live in Tanzania</span>
-            </div>
+           
 
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--dark)] leading-[1.1] tracking-tighter mb-6">
               Smarter Deliveries<br />
@@ -24,7 +20,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-[var(--body)] leading-relaxed max-w-lg mb-10">
-              Percelio connects business owners, courier agents, and logistics companies across East Africa — real-time tracking, instant booking, full visibility on every parcel.
+              Pacelio connects business owners, courier agents, and logistics companies across East Africa — real-time tracking, multi-carrier rate comparison, instant booking, and full visibility on every parcel.
             </p>
 
             {/* Stats row */}
@@ -42,7 +38,7 @@ export default function Hero() {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-4 mb-4">
               <Link href="/download" className="btn btn-primary btn-lg">
                 Download App
                 <Download className="w-5 h-5" />
@@ -51,6 +47,16 @@ export default function Hero() {
                 See how it works
                 <Play className="w-4 h-4 fill-current" />
               </Link>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-[var(--muted)]">
+              <TrendingUp className="w-4 h-4 text-[var(--orange)]" />
+              <span>
+                Seeking investment to scale across East Africa —{' '}
+                <Link href="/investors" className="text-[var(--orange)] font-bold no-underline hover:underline">
+                  Learn more
+                </Link>
+              </span>
             </div>
 
             {/* Trust logos */}
@@ -115,7 +121,7 @@ export default function Hero() {
                         <span className="text-[10px] font-bold text-[var(--orange)] uppercase tracking-widest">In Transit</span>
                       </div>
                       <div className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-widest mb-1">Parcel #PCT-2847</div>
-                      <div className="text-base font-bold text-[var(--dark)] tracking-tight mb-4">Dar es Salaam → Arusha</div>
+                      <div className="text-base font-bold text-[var(--dark)] tracking-tight mb-4">Mbeya → Dar es Salaam</div>
 
                       <div className="relative pt-1 mb-4">
                         <div className="overflow-hidden h-2 text-xs flex rounded-full bg-[var(--border-light)]">

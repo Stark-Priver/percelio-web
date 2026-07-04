@@ -20,9 +20,9 @@ export default function Contact() {
 
             <div className="flex flex-col gap-8">
               {[
-                { icon: Mail, title: 'Email Us', value: 'hello@percelio.com', sub: 'We reply within 24 hours' },
-                { icon: Phone, title: 'Call Us', value: '+255 700 000 000', sub: 'Mon-Fri from 8am to 5pm' },
-                { icon: MapPin, title: 'Visit Us', value: 'Percelio HQ, Dar es Salaam', sub: 'Tanzania' },
+                { icon: Mail, title: 'Email Us', value: 'pacelio@incpritech.com', sub: 'We reply within 24 hours' },
+                { icon: Phone, title: 'Call Us', value: '+255 792 017 591', sub: 'Mon-Fri from 8am to 5pm' },
+                { icon: MapPin, title: 'Visit Us', value: 'Pacelio HQ, Mbeya, Tanzania', sub: 'Tanzania' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 items-start">
                   <div className="icon-wrap icon-wrap-orange">

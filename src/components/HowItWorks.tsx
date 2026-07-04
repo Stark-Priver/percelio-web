@@ -7,7 +7,7 @@ const steps = [
     num: '01',
     icon: UserPlus,
     title: 'Create Your Account',
-    desc: 'Sign up in 2 minutes. Choose your role — business owner, courier agent, logistics company, or end user. Percelio tailors the experience instantly.',
+    desc: 'Sign up in 2 minutes. Choose your role — business owner, courier agent, logistics company, or end user. Pacelio tailors the experience instantly.',
     color: '#E55934',
     bg: '#FFF1EC',
   },
@@ -50,7 +50,7 @@ export default function HowItWorks() {
             <span className="text-[var(--orange)]">in Minutes</span>
           </h2>
           <p className="text-lg text-[var(--body)] max-w-xl mx-auto leading-relaxed">
-            No complex onboarding. No training required. Percelio is built for busy people on the move.
+            No complex onboarding. No training required. Pacelio is built for busy people on the move.
           </p>
         </div>
 

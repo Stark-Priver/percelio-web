@@ -87,7 +87,7 @@ export default function UserTypes() {
             <span className="text-[var(--orange)]">Four Perspectives</span>
           </h2>
           <p className="text-lg text-[var(--body)] max-w-xl mx-auto leading-relaxed">
-            From the initial booking to the final doorstep delivery — Percelio manages the entire lifecycle for everyone involved.
+            From the initial booking to the final doorstep delivery — Pacelio manages the entire lifecycle for everyone involved.
           </p>
         </div>
 

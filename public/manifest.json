@@ -1,0 +1,21 @@
+{
+  "name": "Pacelio — East Africa's Courier & Logistics Platform",
+  "short_name": "Pacelio",
+  "description": "Connect businesses, courier agents, and logistics companies across East Africa. Real-time tracking, multi-carrier rate comparison, instant booking, and seamless delivery management.",
+  "start_url": "https://pacelio.incpritech.com",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E8632E",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
