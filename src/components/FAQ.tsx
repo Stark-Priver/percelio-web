@@ -6,7 +6,7 @@ import { Plus, Minus, HelpCircle, Mail, MessageSquare } from 'lucide-react';
 const faqs = [
   {
     q: 'Which cities in Tanzania is Pacelio available in?',
-    a: 'Pacelio is currently active in Mbeya, Dar es Salaam, Arusha, Mwanza, and Dodoma. We are expanding to more Tanzanian cities every quarter, with Kenya, Uganda, and Rwanda planned for 2025–2026.',
+    a: 'Pacelio is currently active in Mbeya, Dar es Salaam, Arusha, Mwanza, and Dodoma. We are expanding to more Tanzanian cities every quarter, with Kenya, Uganda, and Rwanda planned for 2026.',
   },
   {
     q: 'How does courier matching work?',

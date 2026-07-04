@@ -34,7 +34,7 @@ export default function PacelioLaunchPost() {
 
             <h2 className="text-2xl font-bold text-[var(--foreground)] mt-12 mb-4">From campus to city-wide</h2>
             <p>
-              In early 2025, Privatus Cosmas and Peter Ntonda noticed something frustrating: ordering goods across Mbeya meant coordinating multiple phone calls, waiting hours for a rider, and never knowing exactly when — or if — your package would arrive. The Southern Highlands had no modern, trackable delivery service.
+              In early 2026, Privatus Cosmas and Peter Ntonda noticed something frustrating: ordering goods across Mbeya meant coordinating multiple phone calls, waiting hours for a rider, and never knowing exactly when — or if — your package would arrive. The Southern Highlands had no modern, trackable delivery service.
             </p>
             <p>
               They built Pacelio as their diploma project, initially planning a simple proof of concept. But when local businesses heard about the idea, demand was immediate. A restaurant in Iyunga wanted in. A boutique in Soweto. A hardware store in Mabatini. By graduation, they had 15 businesses on a waitlist.

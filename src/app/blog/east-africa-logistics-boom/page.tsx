@@ -19,7 +19,7 @@ export default function EastAfricaLogisticsPost() {
             Industry Trends
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-6">East Africa's logistics boom: Why 2025 is a turning point</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-6">East Africa's logistics boom: Why 2026 is a turning point</h1>
 
           <div className="flex items-center gap-6 text-sm text-[var(--muted)] mb-12 pb-8 border-b border-[var(--border)]">
             <span className="flex items-center gap-2"><User className="w-4 h-4" /> Peter Ntonda</span>
@@ -40,7 +40,7 @@ export default function EastAfricaLogisticsPost() {
               This gap is exactly where Pacelio operates. By combining digital infrastructure with a network of local couriers, we bridge the final kilometre that traditional logistics providers cannot reach profitably.
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--foreground)] mt-12 mb-4">Key trends shaping 2025</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mt-12 mb-4">Key trends shaping 2026</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Mobile-first commerce</strong> — over 80% of transactions in Tanzania originate on mobile. Delivery platforms must be mobile-native end to end.</li>
               <li><strong>Urbanisation acceleration</strong> — Mbeya, Arusha, and Mwanza are growing at 5% annually, creating dense delivery clusters that were nonexistent a decade ago.</li>

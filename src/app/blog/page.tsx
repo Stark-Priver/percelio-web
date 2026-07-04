@@ -31,7 +31,7 @@ export default function BlogPage() {
               {
                 slug: 'east-africa-logistics-boom',
                 category: 'Industry Trends',
-                title: 'East Africa\'s logistics boom: Why 2025 is a turning point',
+                title: 'East Africa\'s logistics boom: Why 2026 is a turning point',
                 excerpt: 'Cross-border trade is surging. Learn how Pacelio is positioned to connect Tanzania, Kenya, Uganda, and Rwanda like never before.',
               },
               {

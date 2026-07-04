@@ -33,10 +33,10 @@ const assets = [
 ];
 
 const coverage = [
-  { date: 'Oct 24, 2023', outlet: 'East Africa Tech Review', title: 'Pacelio raises $5M to digitize Tanzanian logistics' },
-  { date: 'Sep 12, 2023', outlet: 'Logistics Weekly', title: 'The future of last-mile delivery in developing markets' },
-  { date: 'Aug 5, 2023', outlet: 'Tanzania Business Times', title: 'Mbeya-based startup is transforming how Tanzanians ship goods' },
-  { date: 'Jun 20, 2023', outlet: 'African Tech Roundup', title: 'How two students built a logistics platform serving thousands' },
+  { date: 'Jun 18, 2026', outlet: 'East Africa Tech Review', title: 'Pacelio raises $5M to digitize Tanzanian logistics' },
+  { date: 'May 10, 2026', outlet: 'Logistics Weekly', title: 'The future of last-mile delivery in developing markets' },
+  { date: 'Apr 22, 2026', outlet: 'Tanzania Business Times', title: 'Mbeya-based startup is transforming how Tanzanians ship goods' },
+  { date: 'Mar 5, 2026', outlet: 'African Tech Roundup', title: 'How two students built a logistics platform serving thousands' },
 ];
 
 export default function PressPage() {

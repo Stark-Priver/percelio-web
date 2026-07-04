@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-8">Privacy Policy</h1>
           <div className="prose prose-orange dark:prose-invert max-w-none">
-            <p className="text-lg text-[var(--muted)] mb-8">Last Updated: January 2024</p>
+            <p className="text-lg text-[var(--muted)] mb-8">Last Updated: January 2026</p>
 
             <h3 className="text-xl font-bold text-[var(--foreground)] mt-8 mb-4">1. Information We Collect</h3>
             <p className="text-[var(--muted)] mb-6">We collect information you provide directly to us when you create an account, use our delivery services, or communicate with us.</p>

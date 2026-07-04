@@ -133,8 +133,8 @@ export default function InvestorsPage() {
                 <h3 className="text-xl font-bold text-[var(--foreground)] mb-6">East Africa Logistics at a Glance</h3>
                 <div className="space-y-5">
                   {[
-                    { label: 'Market Value', val: 'TZS 47.8T', sub: 'Courier & logistics (2025)' },
-                    { label: 'Annual Growth', val: '15%', sub: 'CAGR 2025–2030' },
+                    { label: 'Market Value', val: 'TZS 47.8T', sub: 'Courier & logistics (2026)' },
+                    { label: 'Annual Growth', val: '15%', sub: 'CAGR 2026–2030' },
                     { label: 'E-Commerce Share', val: '22%', sub: 'Of total logistics demand' },
                     { label: 'Unserved Market', val: '~65%', sub: 'No digital logistics solution' },
                     { label: 'Mobile Money Users', val: '70%+', sub: 'Of Tanzanian adults' },
